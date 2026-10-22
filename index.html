@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Crux · Richard Rumelt</title>
+<meta name="description" content="Richard Rumelt'in The Crux kitabı için Işıl Tabağ'ın hazırladığı etkileşimli çalışma.">
+<style>
+:root{--navy:#0f1f3d;--navy2:#18305a;--ink:#2b2f36;--muted:#5b6472;--line:#dfe3ea;--bg:#f4f6f9;--white:#fff;--accent:#b0582a;--ok:#1d5c4a;--okbg:#eaf3ef;--bad:#8a2d2d;--badbg:#f8eded}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+a{color:var(--navy2)}
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.top-in{max-width:980px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:700;letter-spacing:.02em;font-size:15px}
+.brand span{color:#c9cfdb;font-weight:400}
+.part-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#e3a77f;white-space:nowrap}
+.progress-wrap{background:var(--navy2);height:6px}
+.progress-bar{height:6px;background:var(--accent);width:0;transition:width .35s ease}
+.progress-label{max-width:980px;margin:0 auto;padding:4px 20px 8px;font-size:12px;color:#c9cfdb}
+main{max-width:980px;margin:0 auto;padding:28px 20px 40px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:34px 38px;box-shadow:0 1px 2px rgba(15,31,61,.04)}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+h1{font-size:30px;line-height:1.2;color:var(--navy);margin:0 0 18px}
+h2{font-size:21px;color:var(--navy);margin:28px 0 10px}
+h3{font-size:17px;color:var(--navy);margin:20px 0 8px}
+p{margin:0 0 14px}
+.en{color:var(--muted);font-style:italic;font-weight:400}
+.bridge{background:#f1f3f7;border-radius:8px;padding:10px 14px;color:#3a4150}
+.lead{font-size:18px;color:#3a4150}
+.concept{border-left:4px solid var(--accent);background:#f7f8fb;padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0}
+.concept b.t{display:block;color:var(--navy);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.note{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:20px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.fact{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:#fbfcfd}
+.fact .n{font-size:22px;font-weight:700;color:var(--navy);display:block;line-height:1.2}
+.fact .d{font-size:13.5px;color:var(--muted)}
+ul.clean{padding-left:20px;margin:0 0 14px}
+ul.clean li{margin-bottom:6px}
+table.t{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14.5px}
+table.t th,table.t td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+table.t th{background:#f1f3f7;color:var(--navy)}
+.q{margin-top:28px;border:1px solid #cfd6e2;border-radius:10px;padding:22px 24px;background:#fbfcfe}
+.q .qh{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy2);font-weight:700;margin-bottom:6px}
+.q .qp{font-weight:600;color:var(--navy);font-size:17px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1px solid #cfd6e2;background:#fff;border-radius:8px;padding:12px 14px;font:inherit;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover:not([disabled]){border-color:var(--navy2);background:#f5f7fb}
+.opt:focus-visible{outline:3px solid #9fb3d9;outline-offset:2px}
+.opt .k{flex:0 0 28px;height:28px;border-radius:50%;border:1px solid #b8c1d1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--navy)}
+.opt[disabled]{cursor:default}
+.opt.wrong{border-color:#d9b3b3;background:var(--badbg);color:#6d3a3a}
+.opt.wrong .k{border-color:var(--bad);color:var(--bad)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.right .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.fb{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:15px;display:none}
+.fb.show{display:block}
+.fb.bad{background:var(--badbg);border:1px solid #e3c4c4;color:#5e2a2a}
+.fb.good{background:var(--okbg);border:1px solid #bfd9cf;color:#173f33}
+.fb b{display:block;margin-bottom:2px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:11px 20px;font:inherit;font-weight:600;cursor:pointer;border:1px solid var(--navy);background:var(--navy);color:#fff;text-decoration:none;min-height:44px}
+.btn:hover{background:var(--navy2)}
+.btn.sec{background:#fff;color:var(--navy)}
+.btn.sec:hover{background:#f1f3f7}
+.btn.acc{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.hint{font-size:13.5px;color:var(--muted);text-align:center;flex:1}
+.letter{font-family:Georgia,"Noto Serif","Times New Roman",serif;font-size:17.5px;line-height:1.75;color:#262a31}
+.letter p{margin-bottom:16px}
+.sign{margin-top:22px;font-style:italic}
+.cover-hero{background:var(--navy);color:#fff;border-radius:10px;padding:40px 38px;margin-bottom:22px}
+.cover-hero h1{color:#fff;font-size:36px;margin-bottom:6px}
+.cover-hero .by{color:#c9cfdb;font-size:17px}
+.cover-hero .eyebrow{color:#e3a77f}
+.resume{border:1px solid #e3a77f;background:#fbf3ee;border-radius:10px;padding:18px 22px;margin-bottom:22px}
+.resume p{margin-bottom:10px}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+.final-msg{font-size:20px;font-weight:600;color:var(--navy);border-left:4px solid var(--accent);padding:6px 0 6px 16px;margin:0 0 22px}
+.score{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:8px 0 6px}
+.score .big{white-space:nowrap;font-size:42px;font-weight:800;color:var(--navy)}
+form.f{display:grid;gap:14px;margin-top:10px;max-width:520px}
+label{font-weight:600;color:var(--navy);font-size:14.5px;display:block;margin-bottom:4px}
+input[type=text],input[type=email]{width:100%;padding:11px 12px;border:1px solid #c3cbd9;border-radius:8px;font:inherit;background:#fff}
+input:focus{outline:3px solid #b9c8e6;border-color:var(--navy2)}
+.req{color:var(--bad)}
+.err{color:var(--bad);font-size:14px;margin-top:4px;display:none}
+.err.show{display:block}
+.status{margin-top:14px;padding:12px 16px;border-radius:8px;display:none;font-size:15px}
+.status.show{display:block}
+.status.ok{background:var(--okbg);border:1px solid #bfd9cf;color:#173f33}
+.status.no{background:var(--badbg);border:1px solid #e3c4c4;color:#5e2a2a}
+.status.info{background:#eef2f8;border:1px solid #cfd8e8;color:var(--navy)}
+.continue{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
+.missing{background:#fbf3ee;border:1px solid #ebcdb8;border-radius:8px;padding:14px 18px}
+.schema{display:grid;gap:14px;margin:18px 0}
+.schema .core{background:var(--navy);color:#fff;border-radius:10px;padding:18px 20px;text-align:center}
+.schema .core b{display:block;font-size:18px;margin-bottom:4px}
+.schema .core span{color:#c9cfdb;font-size:14.5px}
+.schema .arrow{text-align:center;color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.schema .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.schema .box{border:1px solid #cfd6e2;border-top:4px solid var(--navy2);border-radius:8px;padding:14px;background:#fff}
+.schema .box h4{margin:0 0 6px;color:var(--navy);font-size:15.5px}
+.schema .box p{font-size:13.5px;margin:0 0 8px;color:#3a4150}
+.schema .box .sol{font-size:13px;border-top:1px dashed #cfd6e2;padding-top:8px;color:var(--navy)}
+.schema .box .sol b{color:var(--accent)}
+.schema .base{background:#f1f3f7;border:1px solid var(--line);border-radius:10px;padding:14px 18px;text-align:center;font-size:14.5px}
+.check{list-style:none;padding:0;margin:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--navy)}
+.check label{font-weight:400;color:var(--ink);font-size:15.5px;margin:0}
+.keyq{counter-reset:k;list-style:none;padding:0}
+.keyq li{counter-increment:k;padding:8px 0 8px 40px;position:relative;border-bottom:1px solid var(--line)}
+.keyq li:before{content:counter(k);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
+footer{max-width:980px;margin:0 auto;padding:0 20px 30px;color:var(--muted);font-size:12.5px;text-align:center}
+@media (max-width:760px){
+ .card{padding:22px 18px}
+ .cover-hero{padding:28px 20px}
+ .cover-hero h1{font-size:28px}
+ h1{font-size:24px}
+ .schema .grid{grid-template-columns:1fr 1fr}
+ .q{padding:18px 14px}
+ .nav{flex-wrap:wrap}
+ .nav .hint{order:3;flex-basis:100%}
+ .letter{font-size:16.5px}
+ .brand span{display:none}
+}
+@media (max-width:460px){.schema .grid{grid-template-columns:1fr}.btnrow .btn{width:100%}main{padding:16px 10px 30px}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="top-in"><div class="brand">The Crux <span>· Richard Rumelt</span></div><div class="part-tag" id="partTag">Giriş</div></div>
+ <div class="progress-wrap" aria-hidden="true"><div class="progress-bar" id="bar"></div></div>
+ <div class="progress-label" id="progLabel" aria-live="polite"></div>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer>Hazırlayan: Işıl Tabağ · Kitap: Richard Rumelt, <em>The Crux: How Leaders Become Strategists</em> (2022). Kitaptaki şirket ve sayı örnekleri, kitabın yazıldığı döneme ait tarihsel örneklerdir.</footer>
+<script>
+const SECTIONS = {
+  A: "Kritik düğümü bulmak",
+  B: "Odak ve tutarlılık",
+  C: "Teşhis ve avantaj",
+  D: "Tuzaklar ve uygulama"
+};
+
+const PART1 = [
+{
+ id:"a1", sec:"A", chapter:"Giriş · Tırmanışın kritik düğümü",
+ title:"Crux: Tırmanışın en zor noktası",
+ html:`
+<p class="lead">Richard Rumelt kitabına Paris yakınlarındaki Fontainebleau ormanında, ilk bakışta küçük görünen bir kayayla başlar. Kayanın bir noktasına kadar güç ve alışkanlıkla çıkılabilir; ama çıkıntıyı aşmak için tutuşları, beden konumunu ve hareketin zamanlamasını birlikte çözmek gerekir.</p>
+<p>Tırmanıcılar rotanın bu en zor ve belirleyici kısmına <strong>crux</strong> derler. Rumelt kavramı stratejiye taşır ve şu soruyu sorar: <strong>Bir sorunlar yığını içinde ilerlemeyi asıl kilitleyen nokta hangisi?</strong></p>
+<h3>İyi bir tırmanıcı neyi arar?</h3>
+<p>İyi tırmanıcı en yüksek ya da en gösterişli kayaya koşmaz; kendi becerisiyle aşabileceği kritik noktayı arar. Stratejide de kritik düğüm yalnızca "büyük bir tehlike" değildir. Hem <strong>önemli</strong> olmalı hem de mevcut ya da geliştirilebilecek imkânlarla <strong>ele alınabilir</strong> olmalıdır. Rumelt'in tarif ettiği beceri üç parçalıdır:</p>
+<ul class="clean">
+<li>Önemli meseleleri önemsizlerden ayırmak,</li>
+<li>bunların içindeki aşılabilir darboğazı görmek,</li>
+<li>kaynakları tam bu noktada yoğunlaştırmak.</li>
+</ul>
+<h3>SpaceX örneği</h3>
+<p>Mars'a gitme arzusu tek başına strateji değildir; bir dilektir. Rumelt'in yorumunda SpaceX için maliyet yapısını kökten değiştirecek düğüm, <strong>roketlerin yeniden kullanılabilmesidir</strong>. Basit tasarım, üretimi kendi kontrolünde tutmak, parça ve tedarik kararları, roketin geri inmesi için yapılan çalışmalar... Bunların hepsi önemlidir çünkü aynı ortak soruna hizmet ederler. Büyük amaç ile somut iş arasındaki köprü böyle kurulur.</p>
+<h3>Strateji bir tasarım işidir</h3>
+<p>Klasik karar modelleri seçeneklerin hazır olduğunu varsayar: A mı, B mi? Gerçek hayatta en zor iş çoğu zaman seçenekleri <strong>üretmektir</strong>. Önce durumun ne olduğunu anlamak, sonra uygulanabilir bir C tasarlamak gerekir. Rumelt dürüst de davranır: Her durum kurtarılamaz; bazen kaynaklar yetmez, bazı istekler birbiriyle bağdaşmaz. İyi strateji her zaman zafer sözü vermez.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Kritik düğüm (crux):</strong> Daha geniş bir güçlüğün içinde, aşıldığında ilerlemeyi belirgin biçimde kolaylaştıracak, hem önemli hem de üzerinde çalışılabilir nokta.</div>
+<p class="note">Kitap 2022'de yayımlandı. Şirketler ve teknolojiler hakkındaki değerlendirmeler, kitabın yazıldığı döneme ait tarihsel örneklerdir.</p>`,
+ learn:["Crux, tırmanışta rotanın en zor ve belirleyici kısmıdır; Rumelt kitaba Fontainebleau ormanındaki bir kaya tırmanışıyla başlar.","Kritik düğüm (crux) hem önemli hem de ele alınabilir olmalıdır; yalnızca büyük bir tehlike demek değildir.","Stratejik beceri üç parçadır: önemli meseleleri ayırmak, içlerindeki aşılabilir darboğazı görmek, kaynakları orada yoğunlaştırmak.","SpaceX: Mars'a gitme arzusu strateji değildir; maliyet yapısını değiştirecek düğüm roketlerin yeniden kullanılabilmesidir.","Strateji bir tasarım işidir: Seçenekler hazır gelmez, uygulanabilir yeni bir yol (C seçeneği) tasarlanır. Her durum kurtarılamaz."],
+ q:{
+  prompt:"Rumelt'e göre iyi bir tırmanıcı ve iyi bir stratejist hangi noktaya yönelir?",
+  options:[
+   {t:"En yüksek ve en gösterişli kayaya; çünkü büyük hedef büyük motivasyon yaratır", f:"Gösterişli hedef heyecan verir ama kitaba göre iyi tırmanıcı en yüksek kayaya değil, aşabileceği kritik noktaya yönelir. Büyük bir dilek tek başına strateji değildir; SpaceX'te Mars hayalini düşün."},
+   {t:"Hem önemli hem de kendi imkânlarıyla aşılabilecek kritik noktaya", f:"", c:true},
+   {t:"En kolay kısma; çünkü önce küçük başarılar toplamak gerekir", f:"Kolay işler güven verir ama ilerlemeyi kilitleyen yeri çözmez. Kritik düğüm önemli olmalıdır; sadece kolay işlere yönelmek strateji değildir."},
+   {t:"Aynı anda bütün zor noktalara; hiçbir sorunu dışarıda bırakmamak için", f:"Bütün sorunlara aynı anda saldırmak kaynakları dağıtır. Rumelt'in tarif ettiği beceri, kaynakları tek bir aşılabilir darboğazda yoğunlaştırmaktır."}
+  ],
+  good:"Kritik düğüm iki koşulu birlikte taşır: Önemlidir ve üzerinde çalışılabilir. Rumelt'in deyişiyle beceri, önemli meseleleri ayırt etmek, içlerindeki aşılabilir darboğazı görmek ve kaynakları orada yoğunlaştırmaktır."
+ }
+},
+{
+ id:"a2", sec:"A", chapter:"Bölüm 1 · Carolyn'in çıkmazı",
+ title:"Hedef ilan etmek strateji değildir",
+ html:`
+<p class="lead">Carolyn, iş planlamasından sorumlu bir MBA öğrencisidir. Yöneticisi ondan "şirketin hedeflerine ulaşmasını sağlayacak bir strateji" ister. Carolyn pek çok ders almış, pek çok yöntem öğrenmiştir; yine de bunlardan gerçek bir stratejiyi nasıl çıkaracağını bilemez.</p>
+<p>Rumelt bunu Carolyn'in kişisel eksikliği olarak görmez. Strateji eğitimi rekabeti analiz etmek ya da finansal sonuç hesaplamak için birçok araç verir; ama <strong>yeni bir hareket tarzının nasıl oluşturulacağını</strong> çoğu zaman anlatmaz.</p>
+<h3>Sırayı tersine çevirmek</h3>
+<p>Yöneticinin isteğinde gizli bir varsayım vardır: Hedefler zaten doğrudur, strateji de bu hedeflere giden adımların hesabıdır. Rumelt sırayı tersine çevirir: <strong>Şirketin hangi güçlüklerle karşılaştığı anlaşılmadan hangi hedeflerin anlamlı olduğu da bilinemez.</strong> Üstelik büyüme, güvenlik, itibar, bağımsızlık gibi isteklerin hepsini aynı anda en üst düzeye çıkarmak mümkün değildir; strateji bunları tartmayı da içerir.</p>
+<h3>Netflix örneği</h3>
+<p>DVD kiralamaktan çevrim içi yayına geçen Netflix, başlangıçta başkalarının dizi ve filmlerini lisanslayarak büyüdü. Ama içerik sahipleri kendi yayın hizmetlerini kurmaya başlayınca, büyümeyi sağlayan kaynak bir <strong>bağımlılığa</strong> dönüştü: Popüler diziler geri çekildi, lisans ücretleri yükseldi, özgün yapımlar pahalıydı ve finansman gerekiyordu. Bu birbirine bağlı sorunlar "abone sayısını artıralım" hedefiyle çözülemezdi.</p>
+<p>Rumelt'in teşhisi, <strong>içerik maliyetini</strong> ve bu maliyetin dağıtılacağı <strong>izleyici tabanını</strong> birlikte düşünmektir. Özgün içerik pahalıdır; ama yeterince geniş bir uluslararası izleyiciye ulaşırsa ekonomik mantığı güçlenir. Böylece uluslararası genişleme sadece "daha çok ülkede olmak" değil, içerik ekonomisini değiştirme fırsatı hâline gelir.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Önce güçlük, sonra hedef:</strong> İyi strateji önce gerçek gerilimi ortaya çıkarır, sonra buna cevap verecek seçenekleri üretir. Carolyn'in aradığı otomatik hesap makinesi yoktur; yerine teşhis, hayal gücü, seçim ve birbirini destekleyen somut eylemler vardır.</div>`,
+ learn:["Carolyn'in çıkmazı: Strateji araçlarını bilmek, yeni bir hareket tarzı oluşturmayı bilmek demek değildir.","Rumelt sırayı tersine çevirir: Önce güçlükler anlaşılır, hangi hedeflerin anlamlı olduğu ancak sonra bilinebilir.","Birden çok istek (büyüme, güvenlik, itibar, bağımsızlık) aynı anda en üst düzeye çıkarılamaz; strateji bunları tartar.","Netflix: Lisanslı içerikle büyüme, içerik sahipleri kendi platformlarını kurunca bağımlılığa dönüştü.","Netflix'in kritik sorusu, pahalı içerik maliyeti ile bu maliyeti dağıtacak geniş uluslararası izleyici tabanının birlikte düşünülmesidir."],
+ q:{
+  prompt:"Bir yayın platformunun yöneticisi toplantıda şunu söylüyor: \"Stratejimiz net: Üç yılda abone sayımızı ikiye katlamak.\" Rumelt bu cümleye nasıl yaklaşırdı?",
+  options:[
+   {t:"Bu istenen bir sonuç; önce büyümeyi engelleyen güçlüğü, örneğin içerik maliyeti ile izleyici tabanı arasındaki gerilimi çözümlemek gerekir", f:"", c:true},
+   {t:"Bu iyi bir strateji; çünkü ölçülebilir ve iddialı", f:"Ölçülebilir olmak bir cümleyi strateji yapmaz. Bu, ulaşılmak istenen sonucu söylüyor; sonuca giden yoldaki engeli ve onu aşacak eylemleri söylemiyor."},
+   {t:"Hedef yeterince büyük değil; dört katına çıkarılırsa ekip daha çok çalışır", f:"Sorun hedefin büyüklüğü değil. Hedefi büyütmek, onu engelleyen güçlüğü görünür kılmaz; Netflix'in sorunu daha büyük bir sayıyla çözülemezdi."},
+   {t:"Strateji gereksiz; abone sayısı zaten kendiliğinden artar", f:"Kitap stratejiyi gereksiz saymaz; Netflix örneğinde içerik sahiplerinin dizilerini geri çekmesi büyümenin kendiliğinden sürmeyeceğini gösterir."}
+  ],
+  good:"\"Abone sayısını ikiye katlamak\" bir dilek ya da sonuçtur. Rumelt önce gerçek gerilimi sorar: Netflix örneğinde pahalı içerik ile bu maliyeti dağıtacak geniş izleyici kitlesi arasındaki ilişki. Strateji bu güçlüğe verilen tasarlanmış cevaptır."
+ }
+},
+{
+ id:"a3", sec:"A", chapter:"Bölüm 2 · Güçlüğü çözümlemek ve kritik düğümü bulmak",
+ title:"Düğümü bulmak: Topla, grupla, daralt",
+ html:`
+<p class="lead">Rumelt kariyerinin başında stratejiyi büyük ölçüde analiz sanır: veri topla, çerçeve uygula, performansı incele. Deneyim arttıkça fark eder ki etkili stratejistleri ayıran şey daha fazla veri değil, <strong>karmaşık bir durumun içindeki belirleyici gerilimi görme yeteneğidir.</strong></p>
+<h3>Hazır etiketlerin sınırı</h3>
+<p>Kitaptaki bir şirkette yönetim, Porter'ın genel stratejilerinden birini seçerek yön bulmaya çalışır: "Maliyet liderliği mi, farklılaşma mı?" Ama standart ürünlerle özel üretimin farklı ihtiyaçları gibi somut gerilimler ortaya çıkarılmadan bu etiketler ne yapılacağını söylemez. <strong>Çerçeveler nereye bakılacağını gösterir; hangi eylemin işe yarayacağını kendiliğinden üretmez.</strong></p>
+<h3>Karmaşık bir güçlüğü daraltmak</h3>
+<p>Karmaşık sorunların sınırları net değildir; kimse baştan hangi bilginin önemli olduğunu bilmez ve herkes sorunu farklı tanımlar. Rumelt'in yolu şudur:</p>
+<ul class="clean">
+<li><strong>Topla:</strong> Bütün meseleleri ortaya dök.</li>
+<li><strong>Grupla:</strong> Birbirine bağlı olanları bir araya getir; hangisinin önce ele alınması gerektiğini tartış.</li>
+<li><strong>Daralt:</strong> Önem ve müdahale edilebilirlik bakımından eleyerek daha geniş durumu etkileyecek çözülebilir bir alt probleme in.</li>
+</ul>
+<h3>Sezgi ve varsayımlar</h3>
+<p>Yeni bakışlar hazırlıksız bir ilhamdan değil, zor bir durum üzerinde uzun süre düşünmekten, başka birinin gözünden bakmaktan ya da fark edilmemiş bir varsayımı kaldırmaktan doğar. Google, arama sonuçlarıyla ücretli reklamları <strong>ayrı alanlarda</strong> sundu. Böylece "tek bir sonuç listesi her işi yüklenmeli" varsayımını aştı; aramanın güvenilirliği ile reklam geliri aynı tasarımda birlikte yaşayabildi. Louvre'un girişinin yeniden tasarlanması da kitapta bu tür yaratıcı yeniden kurmaya örnek verilir.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Belirleyici gerilim:</strong> Çözüm çoğu zaman bilinen bir reçeteyi uygulamaktan değil, sorunu yanlış biçimde sınırlayan bir varsayımı fark etmekten gelir.</div>`,
+ learn:["Etkili stratejisti ayıran şey daha fazla veri değil, belirleyici gerilimi görme yeteneğidir.","Porter'ın genel stratejileri (maliyet liderliği, farklılaşma) gibi etiketler, somut gerilimler görülmeden ne yapılacağını söylemez.","Karmaşık bir güçlük; meseleleri toplamak, gruplamak ve önem ile müdahale edilebilirliğe göre daraltmakla çözümlenir.","Sezgi; uzun düşünmekten, başka bir bakış açısını denemekten ve gizli bir varsayımı kaldırmaktan doğar.","Google, arama sonuçları ile ücretli reklamları ayrı alanlarda sunarak 'tek liste her işi yapmalı' varsayımını aştı; Louvre'un girişi de yaratıcı yeniden tasarıma örnektir."],
+ q:{
+  prompt:"Bir arama motoru hem güvenilir sonuçlar vermek hem de reklamdan para kazanmak istiyor. Rumelt'in anlattığı Google örneğinde bu gerilim nasıl aşıldı?",
+  options:[
+   {t:"Reklamlar sonuç listesine fark edilmeyecek biçimde karıştırıldı", f:"Bu, aramanın güvenilirliğini, yani gerilimin bir tarafını feda etmek olurdu. Kitaptaki çözüm iki amacı birlikte yaşatır."},
+   {t:"Reklam gelirinden tamamen vazgeçildi", f:"Bu da gerilimin diğer tarafını feda etmektir. Rumelt'in örneğinde reklam geliri korunmuştur; değişen şey tasarımdır."},
+   {t:"Daha fazla kullanıcı verisi toplanarak en iyi reklam oranı hesaplandı", f:"Daha fazla veri kendi başına çözüm üretmez; Rumelt'in kendi deneyimindeki ders de budur. Burada çözümü getiren, gizli bir varsayımın fark edilmesiydi."},
+   {t:"Arama sonuçları ile ücretli reklamlar ayrı alanlarda sunuldu; \"tek liste her işi yapmalı\" varsayımı aşıldı", f:"", c:true}
+  ],
+  good:"Google tek bir sonuç listesinin her işlevi yüklenmesi gerektiği varsayımını kaldırdı. Ayrı alanlar sayesinde güvenilir arama ve reklam geliri birlikte düşünülebildi. Çözüm, sorunu yanlış sınırlayan varsayımı fark etmekten geldi."
+ }
+},
+{
+ id:"a4", sec:"B", chapter:"Bölüm 4 · Kazanabileceğin alanı seçmek",
+ title:"ASC: Önemli ve müdahale edilebilir güçlük",
+ html:`
+<p class="lead">Kritik düğüm nerede aranır? Rumelt'in cevabı bir kısaltmadır: <strong>ASC (Addressable Strategic Challenge)</strong>, yani <strong>müdahale edilebilir stratejik güçlük</strong>. Bir mesele hem kurumun önemli çıkarlarına dokunmalı hem de makul bir çabayla üzerinde ilerleme sağlanabilir olmalıdır.</p>
+<div class="facts">
+<div class="fact"><span class="n">Önemli</span><span class="d">Kurumun geleceğini gerçekten etkiliyor mu?</span></div>
+<div class="fact"><span class="n">Müdahale edilebilir</span><span class="d">Elimizdeki ya da geliştirebileceğimiz imkânlarla makul sürede ilerleyebilir miyiz?</span></div>
+<div class="fact"><span class="n">İkisi birden</span><span class="d">Kritik düğüm genellikle bu iki koşulun kesişiminde bulunur.</span></div>
+</div>
+<p>Sadece kolay işlere yönelmek strateji değildir; bütün kaynakları kontrol edilemeyen dev bir soruna bağlamak da işe yaramaz. Mahalle bakkalı büyük zincirlerle her ürün kategorisinde yarışmaz; yakındaki müşteriyi tanır, alışverişi kolaylaştırır, dar marjlı işi güvenilir yürütür. Ölçek değişse de mantık aynıdır: Bazı önemli işler ertelenmeden daha kritik bir işte yeterli güç toplanamaz.</p>
+<h3>XRSystems: Tanıdık cevapların ötesi</h3>
+<p>Anonimleştirilmiş sensör şirketi XRSystems'in yöneticileri birçok sorun sayar: olgunlaşmış pazar, yenilik eksikliği, üretim sorunları, rahatına alışmış bir kültür. İlk öneriler tanıdık alanlara, satış ve pazarlamaya yönelir. Oysa <strong>otomotiv sensörleri</strong> fikri yeni bir kapı açar: Küçük ve yaratıcı bir ekibin satın alınması, şirketin teknik birikimini yeni talebe bağlar. Kritik düğüm her zaman mevcut işi biraz daha iyi yapmakta değildir.</p>
+<h3>Boş çözüm kümesi ve Intel</h3>
+<p>Bazen istekler birbiriyle bağdaşmaz: Kaynaklar, siyasi sınırlar ya da vazgeçilmeyen tercihler bütün yolları kapatır. Rumelt buna <strong>çözüm kümesinin boş olması</strong> der; o zaman daha yaratıcı bir sunum işe yaramaz, bazı kısıtları gevşetmek gerekir. Intel üzerine yapılan çalışmada üretim teknolojisi, kültür, mobil cihazlar, yapay zekâ gibi konular önem ve müdahale edilebilirlik bakımından puanlanır. Puanlar mekanik bir doğru üretmez; görüş ayrılığının nereden geldiğini tartışmaya ve listeyi daraltmaya yarar.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>ASC (Addressable Strategic Challenge):</strong> Hem stratejik olarak önemli hem de müdahale edilebilir güçlük. Kaynakların nerede yoğunlaşacağını seçmenin ölçütüdür.</div>`,
+ learn:["ASC (Addressable Strategic Challenge): hem önemli hem de makul çabayla ilerlenebilecek, müdahale edilebilir stratejik güçlük.","Sadece kolay işler de, kontrol edilemeyen dev sorunlar da etkili odak değildir; kritik düğüm ikisinin kesişimindedir.","Mahalle bakkalı büyük zincirlerle her alanda yarışmaz; yakındaki müşteriyi tanıma ve kolaylık sağlama üzerinde yoğunlaşır.","XRSystems: Tanıdık satış ve pazarlama önerileri yerine otomotiv sensörleri ve küçük bir ekibin satın alınması yeni bir yön açtı.","Çözüm kümesi boşsa (istekler bağdaşmıyorsa) bazı kısıtlar gevşetilmelidir; Intel çalışmasında puanlama, tartışmayı ve daraltmayı kolaylaştırdı."],
+ q:{
+  prompt:"Okulunun öğrenci gazetesi okunmuyor. Yayın kurulu dört sorun listeledi. Rumelt'in ASC ölçütüne göre önce hangisine odaklanmalı?",
+  options:[
+   {t:"Ülkede gençlerin genel olarak az kitap ve gazete okuması", f:"Önemli bir konu, ama küçük bir yayın kurulunun makul sürede değiştirebileceği bir şey değil. ASC'nin ikinci koşulu olan müdahale edilebilirlik eksik."},
+   {t:"Gazetenin yalnızca basılı çıkması ve öğrencilerin çoğuna hiç ulaşmaması", f:"", c:true},
+   {t:"Kurulda bir arkadaşın yazı başlıklarında fazla espri yapması", f:"Bunu değiştirmek kolay olabilir, ama okunmama sorununun asıl nedeni bu değil. Kolay ama önemsiz işler kritik düğüm değildir."},
+   {t:"Okul binasının eski olması", f:"Bu konu ne gazetenin okunmasıyla doğrudan ilgili ne de kurulun elinde. Ne önemli ne müdahale edilebilir."}
+  ],
+  good:"Dağıtım sorunu hem önemli (öğrencilere ulaşmayan gazete okunamaz) hem de kurulun elinde (dijital sürüm, panolar, okul hesabı gibi yollar denenebilir). ASC iki koşulun kesişimidir."
+ }
+},
+{
+ id:"a5", sec:"B", chapter:"Bölüm 7 · Tutarlı eylem oluşturmak",
+ title:"Tutarlı eylem: Parçalar birbirini beslemeli",
+ html:`
+<p class="lead">Bir stratejinin gücü, içindeki eylemlerin sayısından çok <strong>birbirleriyle ilişkisine</strong> bağlıdır. Rumelt iki düzey tarif eder: En düşük düzeyde kararlar birbirini boşa çıkarmamalıdır. Daha güçlü düzeyde ise eylemler <strong>birbirinin etkisini artırır.</strong></p>
+<p>Ürün, üretim, satış, fiyat ve kurum yapısı birbirine uymadığında, tek tek mantıklı görünen kararlar birlikte kötü bir sonuç verebilir. Tutarlılık bir sunumun düzgün görünmesi değil, bütün faaliyetlerin aynı güçlüğe cevap vermesidir.</p>
+<h3>Birbirini besleyen parçalar</h3>
+<ul class="clean">
+<li><strong>Petzl:</strong> Dar ürün odağı, tırmanış bilgisi, güvenlik itibarı ve test yeteneği birbirini besler. New York itfaiyecileri için geliştirdiği kaçış sistemi, tehlikeli koşullarda güvenilir ekipman yapma becerisini görünür kılar; itibar da sonraki işlerin temeli olur.</li>
+<li><strong>Amazon:</strong> Kolay ödeme, geniş ürün seçeneği, teslimat ve iade süreçleri birlikte müşterinin alışveriş yükünü azaltan bir bütün oluşturur.</li>
+<li><strong>Olay:</strong> Marka yenilenirken daha gelişmiş ürün, fiyat araştırması, yeni ambalaj, mağaza içi konum ve iletişim birlikte tasarlandı. Yeni ürün eski raf düzeni ve eski algıyla satılsaydı etki zayıflardı.</li>
+</ul>
+<h3>Karşı örnekler</h3>
+<p><strong>Uzay mekiği</strong>, çok farklı kurumların isteklerini tek tasarımda birleştirmeye çalıştı. Düşük maliyet ve sık uçuş hedefiyle bağdaşmayan gereksinimler, yeniden kullanılabilirliğin vaat ettiği faydayı aşındırdı. Rumelt, Birleşmiş Milletler'in sürdürülebilir kalkınma hedeflerini de her biri değerli olsa bile aralarındaki gerilimlerin kendiliğinden çözülmediği bir liste olarak eleştirir (amaçların değerini reddetmeden).</p>
+<p>En basit kural: <strong>Hızlı teslimatı rekabet avantajı ilan ederken teslimat kapasitesini azaltmamak.</strong> İyi stratejinin bedeli, iyi görünen birçok talebe aynı anda hayır diyebilmektir.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Tutarlı eylem (coherent action):</strong> Ortak yaklaşımı hayata geçiren ve birbirini boşa çıkarmayan kararlar. Güçlü biçiminde eylemler birbirinin etkisini artırır.</div>`,
+ learn:["Tutarlılığın iki düzeyi: Kararlar birbirini boşa çıkarmamalı; daha güçlü düzeyde birbirinin etkisini artırmalı.","Petzl: Dar odak, tırmanış bilgisi, güvenlik itibarı ve test yeteneği birbirini besler; New York itfaiyecileri için kaçış sistemi geliştirdi.","Amazon: Kolay ödeme, geniş seçenek, teslimat ve iade müşterinin yükünü azaltan bir bütündür. Olay: Ürün, fiyat, ambalaj, raf ve iletişim birlikte yenilendi.","Uzay mekiği: Farklı kurumların isteklerini tek tasarımda birleştirmek, düşük maliyet ve sık uçuş hedefini aşındırdı.","Asgari tutarlılık: Hızlı teslimatı avantaj ilan ederken teslimat kapasitesini azaltmamak. İyi stratejinin bedeli birçok talebe hayır demektir."],
+ q:{
+  prompt:"Bir e-ticaret şirketi yeni stratejisini \"Şehrin en hızlı teslimatı\" olarak ilan etti. Aynı dönemde alınan şu kararlardan hangisi stratejinin tutarlılığını bozar?",
+  options:[
+   {t:"Depoları müşterilerin yoğun olduğu semtlere yaklaştırmak", f:"Bu karar hızlı teslimatı destekler; parçalar aynı yöne çalışıyor. Soru, tutarlılığı bozan kararı soruyor."},
+   {t:"Sipariş hazırlama yazılımını hızlandırmak", f:"Bu da hızlı teslimatı güçlendiren, tutarlı bir eylem. Hangisinin ilan edilen avantajın tam tersine çalıştığını düşün."},
+   {t:"Maliyetleri düşürmek için teslimat araç filosunu yarıya indirmek", f:"", c:true},
+   {t:"Kuryelerin rotalarını trafik verisiyle planlamak", f:"Rota planlaması teslimatı hızlandırır; bu karar stratejiyle uyumlu. Hangi karar teslimat kapasitesini azaltıyor?"}
+  ],
+  good:"Rumelt'in en basit tutarlılık kuralı tam olarak budur: Hızlı teslimatı rekabet avantajı ilan ederken teslimat kapasitesini azaltmamak. Tek başına mantıklı görünen bir maliyet kararı, stratejinin geri kalanını boşa çıkarabilir."
+ }
+},
+{
+ id:"a6", sec:"C", chapter:"Bölüm 8 · Sorunun ne olduğunu anlamak",
+ title:"Teşhis: Sorunu nasıl çerçevelersen öyle çözersin",
+ html:`
+<p class="lead">Teşhis, gerçekliğin her ayrıntısını eşit biçimde kaydetmek değildir; <strong>hangi unsurların durumu açıklamakta daha önemli olduğuna dair bir yorumdur.</strong> Her yorum bazı şeyleri öne çıkarır, bazılarını geri plana iter. Bu yüzden stratejist kendi kullandığı çerçevenin de farkında olmalıdır.</p>
+<p>Rumelt sürekli "ne?" ve "neden?" diye sorar. En verimli sorulardan biri şudur: <strong>"İstediğimiz şeyi neden hâlâ gerçekleştiremedik?"</strong></p>
+<h3>QuestKo: Başarı anlatısının altı</h3>
+<p>QuestKo'nun stratejik planı başarı cümleleri, pazar verileri ve olumlu projelerle doludur. Ama müşteriler memnun değildir, satın alınmış bölümler uyumsuzdur, bilgi sistemleri parça parçadır. Sorunları konuşmak başarı anlatısını bozduğu için rahatsızlık yaratır. Rumelt hayal edilen gelecek yerine mevcut güçlükleri masaya koyar; <strong>müşteri deneyimi</strong> farklı birimleri ortak bir mesele etrafında birleştiren çalışma alanına dönüşür. Şikâyetler daha iyi kaydedilir, ön saftaki yöneticiler sorunları düzenli konuşur. İyi seçilmiş bir düğüm, sonraki güçlükler için de beceri kazandırır.</p>
+<h3>Benzetmenin gücü ve tehlikesi</h3>
+<p>Apple iPhone'u çıkardığında bazı rakipler akıllı telefon pazarını <strong>kişisel bilgisayar pazarına</strong> benzetti: Açık sistem kazanır, donanım sıradanlaşır. Rumelt'e göre bu benzetme iki pazarın farklı talep yapısını, tasarım özelliklerini ve tarihini hesaba katmıyordu. Geçmiş örnekler düşünmeye yardım eder, ama benzer görünen iki durumun aynı nedenlerle işleyeceği varsayılmamalıdır.</p>
+<p>NATO'nun AirLand Battle doktrininde ise başka savaşlardan öğrenmek ve rakibin planlarını yeniden okumak eski savunma anlayışındaki açığı gösterdi; yeni teşhis eğitimi ve harekât biçimini değiştirdi.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Teşhis (diagnosis) ve yeniden çerçeveleme (reframing):</strong> Çerçeveyi değiştirdiğinde çözüm alanı da değişir. Sorun "bütçe yetersiz" diye görülürse para aranır; "müşteriyi tanımıyoruz" diye görülürse öğrenme düzeni kurulur.</div>`,
+ learn:["Teşhis (diagnosis), durumu açıklayan unsurlara dair bir yorumdur; stratejist kendi çerçevesinin farkında olmalıdır.","Verimli soru: 'İstediğimiz şeyi neden hâlâ gerçekleştiremedik?'","QuestKo: Başarı anlatısının altındaki müşteri memnuniyetsizliği ve parçalı sistemler konuşuldu; müşteri deneyimi ortak çalışma alanı oldu.","iPhone: Akıllı telefonları kişisel bilgisayar pazarına benzetmek, farklı talep yapısını ve tasarım özelliklerini gözden kaçırdı. Benzetmeler yardımcıdır ama tehlikelidir.","AirLand Battle: Yeni teşhis, NATO'nun eğitim ve harekât biçimini değiştirdi. Çerçeve değişince çözüm alanı da değişir."],
+ q:{
+  prompt:"Bir telefon üreticisi \"Akıllı telefon pazarı da kişisel bilgisayar pazarı gibi gelişecek; açık sistemler kazanacak, donanım sıradanlaşacak\" diye düşünüyor. Rumelt'e göre bu akıl yürütmedeki tehlike nedir?",
+  options:[
+   {t:"Benzetme kullanmak her zaman yanlıştır; geçmiş örnekler stratejide işe yaramaz", f:"Rumelt benzetmeleri reddetmez; geçmiş örneklerin düşünmeye yardım ettiğini söyler. Tehlike benzetmeyi kullanmakta değil, başka bir yerde."},
+   {t:"Kişisel bilgisayar pazarı telefon pazarına göre çok küçüktür", f:"Kitaptaki eleştiri pazar büyüklüğüyle ilgili değil. Mesele, iki pazarı işleten nedenlerin aynı olup olmadığı."},
+   {t:"İki pazarın farklı talep yapısını, tasarım özelliklerini ve tarihini hesaba katmadan, benzer görünen durumların aynı nedenlerle işleyeceğini varsaymak", f:"", c:true},
+   {t:"Teşhis gereksizdir; doğrudan rakibin yaptığını kopyalamak daha güvenlidir", f:"Teşhisi atlamak kitabın uyarısının tam tersidir. Teşhis sonraki bütün eylemlerin yönünü belirler."}
+  ],
+  good:"Benzetmeler güçlü düşünme araçlarıdır, ama yüzeysel benzerlik aynı mekanizma anlamına gelmez. Rumelt'e göre bu benzetme iki pazarın farklı talep yapısını, tasarımını ve tarihini görmezden geliyordu."
+ }
+},
+{
+ id:"a7", sec:"C", chapter:"Bölüm 9 · Karşılaştırmalar ve çerçeveler",
+ title:"Karşılaştır, veriyi farklı böl, aldanma",
+ html:`
+<p class="lead">Her ölçüm aslında bir karşılaştırmadır. Bir maliyetin "yüksek" sayılması, onu neyle kıyasladığına bağlıdır. Kurumlar çoğu zaman <strong>geçen yılla ya da bütçeyle</strong> karşılaştırma yapar. Bu yararlıdır; ama bütün sistem zaten verimsizse aynı geçmişe bakmak sorunu normal gösterebilir.</p>
+<h3>Doğru soruyu üreten karşılaştırma</h3>
+<p><strong>New York</strong>'taki raylı sistem inşaatlarının maliyetleri başka ülkelerdeki projelerle karşılaştırıldığında, çok yüksek maliyetlerin yalnızca yerel bütçe artışlarıyla açıklanamayacağı görülür. İş gücü düzeni, sözleşmeler, siyasi ilişkiler ve yönetim yapısı sorgulanmalıdır. Karşılaştırma bütün nedenleri kanıtlamaz; ama <strong>kimsenin sormadığı doğru soruyu</strong> üretir.</p>
+<h3>Veriyi başka türlü bölmek</h3>
+<p>DelPiro'da maliyetler alışılmış ürün kategorileri yerine ürün <strong>boyutlarına</strong> göre incelendi; hangi özelliklerin işçilik ve malzemeyi artırdığı açıkça göründü. Panjur ürünlerinin kârlılığına dair bulgu yeni bir pazarlama fırsatına dönüştü. Muhasebe sınıfları doğal gerçekler değildir; belirli bir bakışın ürünüdür.</p>
+<h3>Yanıltıcı ilişkiler</h3>
+<p>SoPretty mağazalarında büyük mağazalar daha kârlı görünüyordu; ilk tavsiye "daha büyük mağazalar açalım" oldu. Ama <strong>rekabet yoğunluğu</strong> gibi değişkenler hesaba katılınca ilk ilişkinin yanıltıcı olduğu anlaşıldı. Rumelt'in mesajı: <strong>Verinin kendisinden çok, veriye sorulan soru belirleyicidir.</strong></p>
+<p>Maersk'in konteyner taşımacılığı da ölçeğin bütün sektörü kârlı yapmayabileceğini gösterir: Herkes daha büyük gemi alınca kapasite artar, fiyatlar düşebilir. Porter'ın Beş Güç (Five Forces) çerçevesi sektör dinamiklerini anlamaya yardım eder, ama şirketler arasındaki özgül beceri farklarını açıklamakta sınırlı kalabilir.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Karşılaştırma (comparison) ile teşhis:</strong> Başka kurumlarla, başka ülkelerle ya da verinin farklı gruplanmasıyla yapılan karşılaştırma, teşhisi değiştirebilir. Çerçeveler gerçeğin yerine geçmez.</div>`,
+ learn:["Her ölçüm bir karşılaştırmadır; yalnızca geçen yıl veya bütçeyle kıyaslamak verimsiz bir sistemi normal gösterebilir.","New York raylı sistem maliyetlerinin başka ülkelerle karşılaştırılması, iş gücü, sözleşme ve yönetim yapısı gibi doğru soruları üretti.","DelPiro: Maliyetleri ürün boyutlarına göre yeniden bölmek kayıpları ve panjur ürünlerinde yeni bir pazarlama fırsatını gösterdi.","SoPretty: Büyük mağazaların daha kârlı görünmesi, rekabet yoğunluğu hesaba katılınca yanıltıcı çıktı. Veriye sorulan soru belirleyicidir.","Maersk: Herkes büyük gemi alınca kapasite artar, fiyatlar düşer. Beş Güç çerçevesi yararlıdır ama şirkete özgü becerileri açıklamakta sınırlıdır."],
+ q:{
+  prompt:"Bir kafe zincirinde büyük şubelerin daha kârlı olduğu görülüyor. Yönetim hemen \"Bütün şubeleri büyütelim\" diyor. SoPretty örneğinden çıkan ders nedir?",
+  options:[
+   {t:"Veri açık; büyük şube daha kârlıysa hepsini büyütmek doğru karardır", f:"SoPretty'de de ilk tavsiye buydu ve yanıltıcı çıktı. İlk görünen ilişki, gizli bir başka nedenin sonucu olabilir."},
+   {t:"Veriye hiç güvenmemek, kararı sezgiyle vermek gerekir", f:"Rumelt veriyi reddetmez; veriye doğru soruyu sormayı önerir. Sorun verinin kendisi değil, yorumlanma biçimi."},
+   {t:"Yalnızca geçen yılın kârlarıyla karşılaştırma yapmak yeterlidir", f:"Rumelt tam da bunun sınırını anlatır: Hep aynı geçmişle karşılaştırmak, önemli değişkenleri gözden kaçırabilir."},
+   {t:"Önce başka değişkenlere bakmak gerekir; örneğin büyük şubeler rakibin az olduğu yerlerde olabilir. İlk ilişki yanıltıcı olabilir", f:"", c:true}
+  ],
+  good:"SoPretty'de rekabet yoğunluğu gibi değişkenler hesaba katılınca \"büyük mağaza daha kârlı\" ilişkisi yanıltıcı çıktı. Verinin kendisinden çok veriye sorulan soru belirleyicidir."
+ }
+},
+{
+ id:"a8", sec:"C", chapter:"Bölüm 11 · Avantaj aramak",
+ title:"Avantaj: Neden özellikle sen kazanacaksın?",
+ html:`
+<p class="lead">Rekabette kazanma ihtimali taraflar arasındaki bir <strong>asimetriye (asymmetry)</strong> dayanır: daha fazla bilgi, özel bir beceri, güçlü bir konum ya da sistemi daha iyi yönetme yeteneği. Rumelt'e göre "Bu işe talep olur" demek yetmez. <strong>Başkaları da aynı talebi görebiliyorsa, neden özellikle senin kazanacağını</strong> açıklaman gerekir.</p>
+<h3>Dağ kasabasında aerobik stüdyosu</h3>
+<p>Hareketli, sportif insanlarla dolu bir dağ kasabasında aerobik stüdyosu açmak isteyen bir girişimci düşün. Talep ihtimali yüksektir; ama girişimcinin hangi bilgiye, ilişkiye ya da işletme becerisine sahip olduğu belirsizdir. Rumelt'in önerisi, bir alana <strong>derinlemesine girip ayrıntıları öğrenmektir</strong>. Fırsatlar genel pazar büyüklüğünden çok, müşterilerin neyi yapamadığını ve mevcut seçeneklerin nerede aksadığını anlamaktan doğar.</p>
+<h3>Fiyat rekabetinden kaçmak</h3>
+<p>Ürünler birbirinin aynısıysa ve fiyatlar kolay karşılaştırılıyorsa kâr marjları erir. Farklı kalite, özel ihtiyaca uyum, güven, konum veya dağıtım sistemi fiyat dışı değer yaratır. Ham petrol üretimi ile rafineri karşılaştırmasının gösterdiği gibi, kötü sonuç her zaman kötü yönetim demek değildir; sektörün arz ve rekabet koşulları da kârı baskılayabilir.</p>
+<h3>Avantajın kaynakları</h3>
+<ul class="clean">
+<li><strong>Bilgiyi özgün biçimde birleştirmek:</strong> Wright kardeşlerin uçuş kontrolüne yaklaşımı, Apple'ın donanımı ve yazılımı birlikte tasarlaması, Nvidia'nın paralel işlem yeteneğinin yapay zekâ eğitiminde değer kazanması.</li>
+<li><strong>Müşteriye yakın olmak:</strong> P&G'nin saha araştırmaları, Intuit'in kullanıcıları yerinde gözlemlemesi; Indego'nun müşterinin üretim sürecini öğrenerek sıradan tedarikçilikten daha değerli bir hizmete geçmesi.</li>
+<li><strong>Ölçek, deneyim, ağ etkileri:</strong> Koşullu avantajlardır. Ağ etkileri (network effects), kullanıcılar rakip platformlara kolayca geçebiliyorsa zayıflar; Airbnb, Uber ve Etsy örnekleri platform kurmanın tek başına garanti olmadığını gösterir.</li>
+</ul>
+<div class="concept"><b class="t">Ana kavram</b><strong>Avantaj (edge):</strong> Stratejist avantajın adını söylemekle yetinmez; <em>hangi mekanizma sayesinde</em> sürdüğünü açıklar. İyimserlik ile stratejik gerekçe arasındaki fark budur.</div>`,
+ learn:["Rekabette kazanma, bilgi, beceri, konum veya sistem yönetimi gibi bir asimetriye dayanır.","'Talep var' demek yetmez: Başkaları da aynı talebi görebiliyorsa neden özellikle senin kazanacağını açıklamalısın (aerobik stüdyosu örneği).","Benzer ürünler ve kolay karşılaştırılan fiyatlar marjları eritir; kalite, uyum, güven, konum ve dağıtım fiyat dışı değer yaratır.","Avantaj kaynakları: bilgiyi özgün birleştirmek (Wright kardeşler, Apple, Nvidia) ve müşteriye yakınlık (P&G, Intuit, Indego).","Ölçek, deneyim ve ağ etkileri koşulludur; Airbnb, Uber ve Etsy platform kurmanın tek başına garanti olmadığını gösterir."],
+ q:{
+  prompt:"Arkadaşın sporu çok seven insanların yaşadığı bir sahil kasabasında spor stüdyosu açmak istiyor: \"Burada herkes spor yapıyor, talep kesin var!\" Rumelt'in soracağı ilk soru hangisi olurdu?",
+  options:[
+   {t:"\"Talep varsa yeter; ne zaman açıyoruz?\"", f:"Talep gerekli ama yeterli değil. Rumelt'in uyarısı şu: Başkaları da aynı talebi görebilir. Seni farklı kılan ne?"},
+   {t:"\"Hemen kasabanın en büyük salonunu açıp ölçek avantajı kuralım mı?\"", f:"Büyüklük koşullu bir avantajdır ve yönetim karmaşıklığını da büyütür. Önce sahip olduğun özgün avantajı bilmek gerekir."},
+   {t:"\"Başkaları da bu talebi görebilir; senin özel bilgin, ilişkilerin ya da işletme becerin ne? Mevcut stüdyolar müşterinin hangi ihtiyacını karşılayamıyor?\"", f:"", c:true},
+   {t:"\"Fiyatı kasabadaki herkesten düşük tutalım mı?\"", f:"Herkesin kolayca karşılaştırabildiği tek bir boyutta, yani fiyatta yarışmak marjları eritir. Kitap fiyat dışı değer yaratmanın yollarını arar."}
+  ],
+  good:"Rumelt'e göre iş fikrinin talep görmesi yetmez. Kazanmak için bir asimetri gerekir: özel bilgi, ilişki, beceri ya da müşterinin karşılanmayan ihtiyacını derinlemesine anlamak."
+ }
+},
+{
+ id:"a9", sec:"D", chapter:"Bölüm 14 · Hedeflerden başlamamak",
+ title:"Hedeflerden başlama, güçlükten başla",
+ html:`
+<p class="lead">Strateji toplantıları çoğu zaman "Önce hedeflerimizi netleştirelim" diye açılır. Mantıklı görünür: Nereye gidileceği bilinirse yol seçilebilir. Rumelt'in itirazı şudur: <strong>Stratejik bir hedef tarafsız bir başlangıç noktası değildir.</strong> Belirli bir pazara girmek, bir büyüme oranına ulaşmak ya da çeşitlenmek zaten kaynakların nereye gideceğine dair kararlardır. Durum anlaşılmadan bu kararları vermek, stratejinin sonunda verilecek hükmü başa koymaktır.</p>
+<h3>Curtiss-Wright toplantısı</h3>
+<p>Curtiss-Wright'taki toplantıda "büyümek", "kârlılığı artırmak", "çeşitlenmek" gibi hedefler konuşulur. O kadar geniştirler ki kimse itiraz etmez; ama somut eylem de üretmezler. Hedefler belirginleşince tartışma hemen stratejik seçimlere döner: Hangi iş bırakılacak, hangi alana girilecek, hangi yeteneğe yatırım yapılacak? Hedefler, çözülmesi gereken seçimleri içlerinde taşır.</p>
+<h3>İyi stratejik amaç: Yakın görev</h3>
+<p>İyi bir amaç karmaşık durumu daha açık ve çözülebilir bir göreve dönüştürür; kurumun nasıl yapacağını bildiği ya da öğrenebileceği bir işi tarif eder. Buna karşılık dayanaksız bir büyüme rakamı <strong>güçlüğü alt kademelere devreder</strong>: Çalışanlara beklenen sonucu söyler ama engelin nasıl aşılacağını söylemez. Sonuç çoğu zaman iyimser tahminler ve gösterişli sunumlardır.</p>
+<h3>Sendia ve Dean Foods</h3>
+<p><strong>Sendia Products</strong>'ta birkaç yılda geliri ikiye katlama hedefi grafiklerle ve komşu pazar girişimleriyle savunulur; ama rakiplerin gücü, şirketin geçmiş deneyimi ve gereken avantaj ele alınmaz. Sayılar birbirini tamamlar, fakat <strong>şirketin neden kazanacağı</strong> açıklanmamıştır. <strong>Dean Foods</strong>'ta ise yerel işlenen, taşınması sınırlı ve markalaşması zor bir üründe şirketleri bir araya getirmek beklenen üstünlüğü üretmez; düşen tüketim ve mağaza markaları maliyet hedefiyle giderilemez.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Yakın görev (proximate objective):</strong> Önemli bir güçlük üzerinde makul sürede gerçekleştirilebilecek, ne yapılacağını açıkça söyleyen görev. Yalnızca ulaşılacak sonucu belirten hedeften farklıdır.</div>`,
+ learn:["Stratejik hedefler tarafsız bir başlangıç değil, zaten verilmiş kaynak kararlarıdır; teşhisten önce konmamalıdır.","Curtiss-Wright: 'Büyümek, kârlılık, çeşitlenme' gibi geniş hedefler itiraz görmez ama eylem üretmez; belirginleşince stratejik seçimlere dönüşür.","Dayanaksız büyüme rakamları güçlüğü alt kademelere devreder; iyimser tahmin ve gösterişli sunum üretir.","Sendia Products: Geliri ikiye katlama hedefi grafiklerle savunuldu ama şirketin neden kazanacağı açıklanmadı. Dean Foods: Sektör yapısı birleşmenin beklenen üstünlüğünü engelledi.","Yakın görev (proximate objective): Önemli bir güçlük üzerinde makul sürede yapılabilecek, ne yapılacağını söyleyen görev."],
+ q:{
+  prompt:"Okuldaki bilim kulübü üye kaybediyor. İki öneri var. Rumelt'in yaklaşımına hangisi daha yakındır?",
+  options:[
+   {t:"Plan A: \"Bu yıl üye sayımızı yüzde yüz artıracağız!\" Çünkü ölçülebilir ve iddialı bir hedef herkesi motive eder", f:"Plan A sadece istenen sonucu söylüyor; üyelerin neden ayrıldığını ve bunun nasıl çözüleceğini söylemiyor. Rumelt'in deyişiyle güçlüğü alt kademelere devrediyor."},
+   {t:"Plan B: \"Üyeler toplantılar dersle çakıştığı için kayboluyor; toplantıları öğle arasına alıp her ay tamamlanan küçük bir proje yapacağız.\"", f:"", c:true},
+   {t:"İkisi de aynı; sonuçta ikisi de kulübü büyütmeyi amaçlıyor", f:"Amaç benzer olabilir ama yaklaşım çok farklı. Biri teşhise ve somut göreve dayanıyor, diğeri yalnızca bir rakam koyuyor."},
+   {t:"Plan A, çünkü önce hedef belirlenir, teşhis sonra gelir", f:"Rumelt tam tersini savunur: Hedefler teşhisten önce konursa stratejinin sonunda verilmesi gereken hüküm başa konmuş olur."}
+  ],
+  good:"Plan B önce güçlüğü teşhis ediyor (ders çakışması) ve makul sürede yapılabilecek bir yakın görev tanımlıyor. Plan A ise yalnızca sonuç rakamı veriyor; neden kazanılacağını açıklamıyor."
+ }
+},
+{
+ id:"a10", sec:"D", chapter:"Bölüm 20 · Strateji atölyesinin kavramları ve araçları",
+ title:"Strateji atölyesi: Daralt, seç, takip et",
+ html:`
+<p class="lead">Kitabın son kısmı, bütün bu fikirleri bir yönetim ekibinin birlikte uygulayabileceği bir çalışma düzenine dönüştürür: <strong>strateji atölyesi (Strategy Foundry)</strong>. Amaç uzun bir sunum üretmek değil; kritik güçlük üzerinde ortak bir teşhis ve uygulanacak sınırlı sayıda karar oluşturmaktır.</p>
+<div class="facts">
+<div class="fact"><span class="n">1–2</span><span class="d">Üzerinde yoğunlaşılacak yakın görev sayısı</span></div>
+<div class="fact"><span class="n">~18 ay</span><span class="d">Kararlar için seçilen yaklaşık zaman ufku</span></div>
+<div class="fact"><span class="n">3 gün</span><span class="d">Kitaptaki FarmKor atölyesinin süresi</span></div>
+</div>
+<h3>Odadaki doğru insanlar</h3>
+<p>Atölye; işi ve rekabeti gerçekten bilen, karar yetkisi olan küçük bir üst yönetim grubuyla daha iyi işler. En üst yönetici tartışmayı tekeline almamalı, katılımcılar telefon ve acil işlerle odadan kopmamalı, görüş ayrılığı kişisel saldırıya dönüşmemelidir. Kolaylaştırıcı (facilitator) yargıyı erteletir: Bilgileri hemen iyi ve kötü diye ayırmamak, hangi güçlüğün önemli ve müdahale edilebilir olduğu anlaşılmadan eylem planına atlamamak.</p>
+<h3>Sorunları azaltma disiplini</h3>
+<p>Atölyenin merkezinde <strong>daraltma</strong> vardır: Müdahale edilebilir stratejik güçlükler seçilir, çok sayıdaki başlık masadan kaldırılır ve <strong>bir ya da iki yakın görev</strong> üzerinde yoğunlaşılır. Yaklaşık on sekiz aylık ufuk, bazı girişimlere <em>şimdilik</em> hayır demeyi kolaylaştırır; çünkü seçimler sonsuza kadar verilmiş kararlar değildir. Böylece herkesin projesini içine alan ama hiçbirine yeterli kaynak ayırmayan listelerden kurtulunur.</p>
+<h3>Stratejik seyrüsefer ve taahhüt</h3>
+<p>Son adımda stratejinin dayandığı <strong>varsayımlar açıkça yazılır</strong> ve olaylar geliştikçe kontrol edilir. Gerektiğinde yön değiştirmek önceki kararın kötü olduğunu göstermez; yeni bilgiye uyumdur. Ama yöneticilerin toplantıda kabul ettikleri kararları sonradan kendi ekipleri önünde baltalaması kabul edilmez. Ortak taahhüt ve sınırlı sayıda önceliği anlatan açık iletişim bu yüzden önemlidir.</p>
+<div class="concept"><b class="t">Ana kavram</b><strong>Stratejik seyrüsefer (strategic navigation):</strong> Seçilmiş yönün dayandığı varsayımları kaydetmek, gelişmelerle karşılaştırmak ve gerektiğinde eylemleri değiştirmek. Kitabın kapanış fikriyle: İyi strateji her şeyi kapsayan büyük bir belge değil, seçilmiş kritik güçlüğe karşı birlikte hareket etme düzenidir.</div>`,
+ learn:["Strateji atölyesi (Strategy Foundry): Karar yetkisi olan, işi bilen küçük bir yönetim grubunun ortak teşhis ve sınırlı sayıda karar ürettiği çalışma düzeni.","Kolaylaştırıcı yargıyı erteletir: Bilgileri hemen iyi ve kötü diye ayırmamak, güçlük anlaşılmadan eylem planına atlamamak.","Sorunları azaltma disiplini: Çok sayıda başlık masadan kalkar, bir ya da iki yakın görev üzerinde yoğunlaşılır.","Yaklaşık on sekiz aylık ufuk, bazı girişimlere şimdilik hayır demeyi kolaylaştırır.","Stratejik seyrüsefer: Varsayımlar yazılır, gelişmelerle kontrol edilir; ortak taahhüt verilir ve kararlar sonradan baltalanmaz."],
+ q:{
+  prompt:"Bir şirketin yönetimi iki günlük toplantının sonunda 14 \"öncelikli\" proje listeledi ve her birine biraz bütçe ayırdı. Rumelt bu ekibe ne önerirdi?",
+  options:[
+   {t:"Listeyi 20 projeye çıkarmak; böylece hiçbir bölüm dışarıda kalmaz", f:"Herkesin projesini içine alan liste, hiçbirine yeterli kaynak ayıramaz. Kitap tam tersine, sorunları azaltma disiplinini önerir."},
+   {t:"Listeyi aynen koruyup akılda kalıcı bir slogan ve vizyon cümlesi eklemek", f:"Slogan bağlılık yaratabilir ama hangi işe öncelik verileceğini belirlemez. Sorun iletişim değil, odak eksikliği."},
+   {t:"Kararı tamamen dışarıdan bir danışmana bırakmak", f:"Rumelt, karar yetkisi olan yönetim gerçek güçlüğü sahiplenmedikçe dışarıdan gelen doğru analizlerin bile stratejiye dönüşmediğini anlatır."},
+   {t:"Müdahale edilebilir bir ya da iki yakın göreve inmek, diğerlerine şimdilik hayır demek, varsayımları yazıp yaklaşık 18 ay boyunca takip etmek", f:"", c:true}
+  ],
+  good:"Atölyenin merkezinde daraltma vardır: Bir ya da iki yakın görev, yaklaşık 18 aylık ufuk, yazılı varsayımlar ve ortak taahhüt. Böylece kaynaklar kritik düğümde yoğunlaşır."
+ }
+}
+];
+
+const PART2 = [
+{
+ id:"b1", chapter:"Bölüm 3 · Strateji bir yolculuktur",
+ title:"Strateji bir yolculuktur: Salesforce ve Ryanair",
+ html:`
+<p class="bridge"><em>Birinci kısımda gördüğün üzere strateji, kritik düğüme verilen tasarlanmış bir cevaptır. Peki düğüm çözülünce ne olur?</em></p>
+<p class="lead">Dağa tırmanan bir ekip zirveye giden her adımı baştan bilemez. Yakındaki bir geçidi seçer, oraya ulaşınca yukarıyı yeniden inceler. Rumelt stratejiyi de böyle anlatır: Bir şirketin yıllarca değişmeyen tek bir stratejisi olduğunu söylemek, farklı dönemlerde karşılaştığı somut sorunları görünmez kılar.</p>
+<h3>Salesforce</h3>
+<p>İlk fırsat, müşteri ilişkileri yazılımlarının pahalı ve zahmetli kurulumuna alternatif sunmaktı. Marc Benioff yazılımı müşterinin kendi bilgisayarlarında değil, <strong>internet üzerinden hizmet olarak</strong> (Software as a Service) sunmayı tasarladı. Ama bu ilk fikir bütün yolculuğu açıklamaz: ekip kurmak, ürünü tanıtmak, müşteri kazanmak, müşteriyi elde tutmak ayrı ayrı stratejik sorunlardı.</p>
+<p>Şirket büyük müşterileri hedeflerken küçük işletmelerin daha hızlı büyüyen bir taban oluşturduğunu gördü. Sonra kullanıcılar sistemi kendi ihtiyaçlarına göre uyarlamak istedi; özelleştirilebilir alanlar, <strong>AppExchange</strong> ve geliştirme araçları bu yeni güçlüğe cevap oldu. Basit bir uygulama giderek bir <strong>platforma</strong> dönüştü.</p>
+<h3>Ryanair</h3>
+<p>"Geleneksel havayollarından ucuz olmak" niyeti başlangıçta yeterli değildi. Ryanair, Southwest modelinden öğrenerek <strong>ikincil havalimanları</strong>, düşük maliyetli operasyonlar ve ayrı ücretlendirilen hizmetler etrafında tutarlı bir düzen kurdu. Sonra yolcu deneyimine dair tepkiler yeni ayarlamalar gerektirdi. Pandemi geldiğinde sorun artık bilet fiyatı değil; ölçeği, finansal dayanıklılığı ve yeniden uçmaya başlama kapasitesini korumaktı.</p>
+<div class="concept"><b class="t">Ana fikir</b>Esneklik rastgele yön değiştirmek değildir. Her aşamada belirli bir güçlük, onu açıklayan bir teşhis ve ona uygun eylemler olmalıdır. Bir çözüm yeni fırsatlar ve yeni bağımlılıklar yaratır.</div>`,
+ q:{
+  prompt:"Salesforce'un bir uygulamadan platforma dönüşmesini Rumelt nasıl okur?",
+  options:[
+   {t:"İlk gün hazırlanmış kusursuz bir planın adım adım uygulanması olarak", f:"Rumelt bunun tam tersini vurgular: Bu gelişmeleri tek bir ilk plan olarak okumak, süreçteki öğrenmeyi ve yeni tasarım kararlarını siler."},
+   {t:"Her aşamada ortaya çıkan yeni güçlüğe (küçük işletmeler, uyarlama ihtiyacı) verilen yeni cevaplardan oluşan bir yolculuk olarak", f:"", c:true},
+   {t:"Şanslı bir tesadüf olarak; stratejinin bunda payı yoktur", f:"Kitap süreci şansa bağlamaz. Her aşamada bir teşhis ve ona uygun bir tasarım kararı vardır: AppExchange ve geliştirme araçları gibi."}
+  ],
+  good:"Strateji bir yolculuktur. İlk başarılı cevap sonrakilerin yerini tutmaz; her aşama yeni bir güçlük, yeni bir teşhis ve yeni eylemler ister."
+ }
+},
+{
+ id:"b2", chapter:"Bölüm 5 · Büyüme güçlüğü",
+ title:"Büyüme güçlüğü: Büyüme bir emirle gelmez",
+ html:`
+<p class="lead">Yöneticilerin en sık "stratejik sorun" diye sunduğu şeylerden biri büyümenin yavaşlamasıdır. Rumelt'e göre bu çoğu zaman bir teşhis değil, <strong>istenen sonucun yokluğuna verilen bir addır</strong>. Ciro, kâr, şirket büyüklüğü ve hissedar değeri aynı şey değildir; satın almalarla büyük görünmek değer yaratıldığı anlamına gelmez.</p>
+<h3>Değer yaratan büyümenin ilkeleri</h3>
+<ul class="clean">
+<li><strong>Genişleyen bir pazara olağanüstü değer sunmak:</strong> Müşteriye yaratılan değer ile maliyet arasındaki fark önemlidir. Varnico'da müşteri ihtiyaçlarını daha iyi anlamak, bölgeler arasında öğrenmeyi sağlamak ve daha kapsamlı hizmet büyümenin temeli oldu. Satış ekibine daha yüksek hedef vermek aynı etkiyi yaratmaz.</li>
+<li><strong>Bahçeyi ayıklamak (pruning):</strong> Zayıf ya da ilgisiz işler bütünü yavaşlatır. McGraw-Hill, finansal bilgi hizmetlerine odaklanarak S&P Global'e dönüştü; toplam gelir kısa vadede küçülse de güçlü işlerin ağırlığı arttı.</li>
+<li><strong>Hızlı ve yetkin karşılık:</strong> John Boyd'un gözle, yönel, karar ver, eyleme geç döngüsü (OODA). İlk hareket eden olmak yetmez; değişen durumu rakipten önce anlayıp uygun cevabı oluşturmak gerekir.</li>
+<li><strong>Akıllı satın almalar:</strong> Stratejiyi tamamlayan beceri ya da teknoloji kazandırmalı veya hedef şirketin ürünlerine daha güçlü pazar erişimi sağlamalı. İyi bir şirkete fazla ödemek yine kötü yatırımdır.</li>
+</ul>
+<h3>İki uyarı</h3>
+<p>Bürokratik yapıyı büyütmek, satın alınan küçük ve yenilikçi işleri onay süreçlerinde boğabilir. Muhasebe hareketleriyle pürüzsüz kazanç artışı göstermek ise gerçek rekabet gücü yaratmaz. Kitabın dönemindeki Uber ve WeWork örnekleri, "zararla büyüme bir gün kâra döner" iddiasının ayrıca açıklanması gerektiğini gösterir.</p>
+<p class="note">Uber ve WeWork hakkındaki değerlendirmeler, kitabın yazıldığı döneme (2022 öncesi) ait tarihsel örneklerdir.</p>`,
+ q:{
+  prompt:"Büyümesi yavaşlayan bir şirkette yönetim iki seçeneği tartışıyor. Rumelt'in büyüme ilkelerine hangisi daha uygun?",
+  options:[
+   {t:"Zayıf ve dikkat tüketen bir yan işi satıp kaynakları en güçlü işte müşteriye daha fazla değer sunmaya aktarmak", f:"", c:true},
+   {t:"Daha büyük görünmek için, stratejiyle ilgisi olmayan bir şirketi yüksek bir fiyata satın almak", f:"Büyüklük değer değildir. Satın alma stratejiyi tamamlamalı ve fazla ödenmemelidir; aksi hâlde iyi bir şirket bile kötü bir yatırım olur."},
+   {t:"Satış ekibinin hedefini iki katına çıkarmak", f:"Varnico örneği gösterir ki büyüme müşteri ihtiyaçlarını daha iyi anlamaktan ve daha iyi hizmetten gelir; yüksek satış hedefi tek başına aynı etkiyi yaratmaz."}
+  ],
+  good:"Bahçeyi ayıklamak ve müşteri değerine odaklanmak, McGraw-Hill'in S&P Global'e dönüşmesindeki mantıktır: Gelir kısa vadede küçülse de güçlü işlerin ağırlığı artar."
+ }
+},
+{
+ id:"b3", chapter:"Bölüm 6 · Güç ve yetki meselesi",
+ title:"Güç ve yetki: Stratejiyi kim uygulayabilir?",
+ html:`
+<p class="lead">Bir strateji bazı faaliyetleri daha önemli hâle getirir; bu da insanların bütçesini, konumunu ve karar hakkını değiştirir. Rumelt'e göre bu yüzden strateji <strong>kaçınılmaz olarak güç kullanımı içerir</strong>. Önemli değişimler, parçaların kendiliğinden yapmayacağı işleri ortak bir amaç doğrultusunda üstlenmelerini gerektirir.</p>
+<h3>Dört kısa vaka</h3>
+<ul class="clean">
+<li><strong>WebCo:</strong> Yönetici Sharon Thompson güçlü bir vizyon, misyon ve strateji metni yazmak ister. Oysa gerçek sorun, ücretsiz başlayan e-ticaret yazılımlarının zamanla karmaşık ve pahalı bakım istemesidir. Bu, kime hizmet edileceğini seçmeyi ve ürün geliştirme düzenini değiştirmeyi gerektirir. Güzel bir metin bu kararların yerini tutmaz.</li>
+<li><strong>MetalCo:</strong> Yeni CEO, güçlü bir bölüm başkanına doğrudan müdahale edecek desteğe sahip değildir. Önce daha zayıf bir bölümü üstlenir, orada sonuç alır ve güvenilirlik kazanır; bu destek sonra bütün şirkette değişikliği mümkün kılar. Unvan, hareket gücüyle aynı şey değildir.</li>
+<li><strong>GrandCo:</strong> Araştırma, üretim, satış ve pazarlama ayrı birimlerdedir; işin bütününden sorumlu kimse yoktur. Nora gerekli kişileri bir araya getirerek fiilen çalışan bir <strong>sanal bölüm</strong> kurar; sonuçlar zamanla resmî bir iş biriminin kurulmasına zemin hazırlar.</li>
+<li><strong>SciCo ve bir kamu yöneticisi:</strong> Ürün geliştirme bütçesi üzerinde yetkisi olmayan bir yönetici, yenilikçi bir rakibe gereken cevabı veremeyebilir. İyi niyet ve çalışkanlık bu eksikliği her zaman telafi etmez.</li>
+</ul>
+<div class="concept"><b class="t">Ana fikir</b>Uygulanabilirlik yalnızca para ve teknik beceriden değil, <strong>karar gücünden</strong> de oluşur. Önerilen eylemlerin kimin yetkisine bağlı olduğu teşhisin parçasıdır.</div>`,
+ q:{
+  prompt:"Yeni atanan bir okul kulübü başkanı, kulübü tamamen değiştirmek istiyor ama eski yöneticiler ona henüz güvenmiyor. MetalCo örneğine göre en akıllıca yol hangisi?",
+  options:[
+   {t:"İlk gün bütün kuralları değiştiren uzun bir bildiri yayımlamak", f:"Unvan hareket gücüyle aynı şey değildir. Destek olmadan yapılan büyük çıkışlar çoğu zaman uygulanamaz."},
+   {t:"Hiçbir şeyi değiştirmeden beklemek", f:"MetalCo'nun CEO'su beklememiştir; güvenilirliği kazanmak için önce ulaşılabilir bir alanda harekete geçmiştir."},
+   {t:"Önce küçük bir alt ekipte somut bir başarı elde edip güvenilirlik kazanmak, sonra bu destekle daha geniş değişikliğe geçmek", f:"", c:true}
+  ],
+  good:"MetalCo'nun yeni CEO'su önce zayıf bir bölümde sonuç aldı, güvenilirliğini artırdı ve bu destekle bütün şirkette değişiklik yaptı. Strateji, yönü hayata geçirecek yetkinin nasıl kazanılacağını da kapsar."
+ }
+},
+{
+ id:"b4", chapter:"Bölüm 10 · Analitik araçları dikkatle kullanmak",
+ title:"Keskin araçlar: Project T, BCG matrisi ve disruption",
+ html:`
+<p class="bridge"><em>Birinci kısımda gördüğün üzere veriye sorulan soru, verinin kendisinden önemlidir. Bu bölüm aynı uyarıyı analitik araçlara taşır.</em></p>
+<p class="lead">Analitik araçlar dikkati daralttıkları için güçlüdür: Bir yatırım hesabı nakit akışlarını, bir portföy matrisi işlerin konumunu öne çıkarır. Ama aynı daraltma önemli unsurları dışarıda bırakabilir. Rumelt hesap yapmayı bırakmayı değil, <strong>hesabın varsayımlarını, dışarıda bıraktıklarını ve kurum içinde hangi amaçla kullanıldığını</strong> sorgulamayı önerir.</p>
+<h3>Project T</h3>
+<p>Kapsamlı danışmanlık, pazar araştırması ve finansal analiz yapılmıştır. Yine de projeyi savunan yönetici, karar vericilere daha çekici görünsün diye <strong>geri ödeme grafiğini elle değiştirir</strong>. Sorun iskonto oranının biraz yanlış seçilmesi değil, tahminlerin güvenilirliğinin kurum içi teşviklerle aşınmasıdır. Bu, üst yönetimin neden kısa geri ödeme süreleri istediğini de açıklar: Uzun vadeli tahminlere güvenmiyorsa erken ve gözlenebilir sonuç ister. Asıl sorun bir bilgi ve güven sorunudur.</p>
+<h3>BCG matrisi</h3>
+<p>BCG'nin büyüme ve pazar payı matrisi, teknik hesapların arkasına saklanmayı azaltan daha kaba bir dil sundu. Ama bu dil de karar gücünü başka gruplara taşıdı ve kendi varsayımlarını getirdi. Hiçbir yöntem örgütsel siyasetten bağımsız değildir; model seçimi de stratejik bir karardır.</p>
+<h3>Disruption kavramının sınırları</h3>
+<p>Yıkıcı yenilik (disruption), başlangıçta düşük fiyatlı ve düşük performanslı bir teknolojinin gelişerek yerleşik oyuncuyu zorlamasını açıklıyordu; zamanla her değişimin adı oldu. BlackBerry, Kodak ve Britannica'da kayıp yalnızca ucuz bir rakiple açıklanamaz; bütün kullanım ve dağıtım ekosistemi değişmiştir. Doğru cevap sorunun türüne bağlıdır: beceri geliştirmek, başka bir şirket almak, eski işi küçültüp kaynak aktarmak ya da yeni işi ayrı tutmak.</p>`,
+ q:{
+  prompt:"Project T'de proje savunucusu geri ödeme grafiğini elle değiştirdi. Rumelt'e göre buradaki asıl sorun nedir?",
+  options:[
+   {t:"Tahminlerin güvenilirliğinin kurum içi teşviklerle aşınması; yani bir bilgi ve güven sorunu", f:"", c:true},
+   {t:"Yanlış iskonto oranı seçilmesi; daha gelişmiş bir finansal model sorunu çözer", f:"Rumelt özellikle bunun sorun olmadığını söyler. Daha gelişmiş bir model, tahminleri çarpıtan davranışları düzeltmez."},
+   {t:"Danışmanlık şirketinin yeterince veri toplamaması", f:"Kapsamlı danışmanlık ve pazar araştırması zaten yapılmıştı. Sorun verinin azlığı değil, sunumun teşviklerle değiştirilmesi."}
+  ],
+  good:"Teknik görünen bir belge, teşvikler onu çarpıttığında tarafsız bilgi olmaktan çıkar. Strateji çalışmasının kalitesi, sistemdeki dürüstlük ve sorumluluk düzeyiyle sınırlıdır."
+ }
+},
+{
+ id:"b5", chapter:"Bölüm 12 · Yenilik yapmak",
+ title:"Yenilik: Doğru zaman, doğru eşleşme",
+ html:`
+<p class="lead">Rumelt yeniliği dünyadan kopuk bir dâhinin ani buluşu olarak anlatmaz. Çoğu yenilik daha önce oluşmuş bilgi ve altyapının üzerinde yükselir. Elektrik, yarı iletkenler ya da internet gibi <strong>uzun dalgalar</strong>, birçok kısa ürün ve iş modeli dalgası yaratır. Bir teknoloji yıllarca gelişebilir; ama maliyet, performans, dağıtım ve kullanım kolaylığı belirli bir eşiğe geldiğinde fırsat doğar.</p>
+<h3>Teknoloji ile ihtiyacın eşleşmesi</h3>
+<ul class="clean">
+<li><strong>Intuitive Surgical:</strong> Robotik cerrahinin değeri "uzaktan ameliyat" hayalinden değil, cerrahın çok küçük ölçekte daha hassas çalışmasını sağlamaktan geldi.</li>
+<li><strong>Zoom:</strong> Temel ihtiyaç video görüşmesi yapabilmek değil, bunu <strong>zahmetsiz ve güvenilir</strong> yapabilmekti. Bağlantı, kurulum, farklı cihazlar ve ağ koşulları gibi küçük sürtünmeler kullanıcı için belirleyiciydi.</li>
+<li><strong>Dropbox:</strong> Dosya saklamaktan çok, farklı cihazlardaki dosyaların uyumlu kalmasının zahmetini azalttı. Ama büyük platformlar aynı işlevi paketlerine ekleyince yeni bir güçlük doğdu: Müşteri neden ayrı bir hizmete para ödesin? İlk teknik üstünlük sonsuza kadar korunmaz.</li>
+</ul>
+<h3>Buluşun değerini kim alır?</h3>
+<p>Farnsworth ile RCA'nın televizyon geliştirme sürecindeki ilişkisi şunu gösterir: İlk fikri ya da patenti elinde tutmak, bütün ticari sistemi kurabilmek demek değildir. Üretim, dağıtım, hizmet, marka ve finansman gibi <strong>tamamlayıcı varlıklar (complementary assets)</strong> kazancın kime gideceğini etkiler.</p>`,
+ q:{
+  prompt:"Zoom örneğinde Rumelt'e göre başarıyı belirleyen neydi?",
+  options:[
+   {t:"Video görüşmesini ilk icat eden şirket olması", f:"Video görüşmesi Zoom'dan önce de vardı. Kitaptaki vurgu ilk olmak değil, kullanıcının yaşadığı sürtünmeleri gidermektir."},
+   {t:"En düşük fiyatı sunması", f:"Kitap Zoom'u fiyatla açıklamaz. Asıl değer görüşmeyi zahmetsiz ve güvenilir kılmaktı."},
+   {t:"Görüşmeyi zahmetsiz ve güvenilir kılması: bağlantı, kurulum, farklı cihaz ve ağ koşullarındaki küçük sürtünmeleri gidermesi", f:"", c:true}
+  ],
+  good:"Yenilik stratejisi, bir olanağın hangi müşteri sorunu için artık kullanılabilir hâle geldiğini görmektir. Zoom'da görünüşte küçük sürtünmelerin giderilmesi kullanıcı açısından belirleyici bir bütün oluşturdu."
+ }
+},
+{
+ id:"b6", chapter:"Bölüm 13 · Kurumsal işlev bozukluğu",
+ title:"Sorun içerideyse: GM, Nokia ve IBM",
+ html:`
+<p class="lead">Bazen şirketi durduran şey dışarıdaki rakip değil, <strong>kendi içinde etkili karşılık üretememesidir</strong>: Bilgi yukarı ulaşmaz, sorumluluk dağılır, bölümler birbirini engeller. Rumelt "kültür kötü" demekle yetinmez; bozukluğun hangi raporlama, yetki, teşvik ve çalışma alışkanlığında yaşadığını arar ve değişimin başlayabileceği bir kaldıraç bulmaya çalışır.</p>
+<h3>General Motors</h3>
+<p>Kariyer kaygısı, bürokrasi, güven eksikliği ve gerçek sorun yerine olumlu görüntü üretme birlikte işler. Kontak anahtarı ve hava yastığı sorununda bilinen parçalar birbiriyle ilişkilendirilemedi; teknik bilginin var olması yetmedi. Bir komitede onay vermek ile işi gerçekten üstlenmek arasındaki boşluk, kurumun eylem gücünü zayıflattı.</p>
+<h3>Nokia</h3>
+<p>Geçmiş başarının kurduğu düzen akıllı telefon rekabetine uyum sağlayamadı. Symbian'ın ürünlere sıkı bağlı yapısı geliştirmeyi zorlaştırdı, çok sayıda model üretme baskısı yükü artırdı. Üst yönetimin yazılım bilgisinin sınırlılığı ve baskıcı iletişim, gerçek güçlüklerin açıkça söylenmesini engelledi; mühendisler tutamayacaklarını bildikleri sözler verdi. Kayıp, doğru sorunu göremeyen bir yönetim sistemi kurmuş olmaktı.</p>
+<h3>IBM</h3>
+<p>Lou Gerstner şirketi parçalara ayırmak yerine müşterinin <strong>bütünleşik çözüm</strong> ihtiyacına yöneldi; bölümler arası engelleri azalttı, maliyetleri gerçekçi karşılaştırmalarla gördü, gereksiz yapıları ayıkladı. Ama Rumelt dönüşümü sihir gibi anlatmaz: Büyük değişimler yıllar alır ve kurtarılmış bir şirket bile sonraki teknolojik dalgada geride kalabilir.</p>
+<div class="concept"><b class="t">Ana fikir</b>Başarı dikkati gevşetir. Başarılı dönemlerde eklenen personel, süreç ve raporlar zamanla kendini koruyan bir yapıya dönüşür ve değişim gerektiğinde fren olur.</div>`,
+ q:{
+  prompt:"Nokia örneğinde stratejik kararların yanlış bilgiye dayanmasının temel nedeni neydi?",
+  options:[
+   {t:"Mühendislerin yeterli teknik bilgiye sahip olmaması", f:"Kitapta sorun mühendislerin bilgisizliği değil; bildiklerini açıkça söyleyememeleridir. Tutamayacaklarını bildikleri sözler verdiler."},
+   {t:"Baskıcı iletişim ve yönetimin yazılım bilgisinin sınırlılığı yüzünden gerçek güçlüklerin yukarıya açıkça ulaşmaması", f:"", c:true},
+   {t:"Rakiplerin Nokia'nın planlarını önceden öğrenmesi", f:"Kitap Nokia'nın sorununu dışarıda değil, içeride bulur: kendi yönetim sistemi doğru sorunu göremiyordu."}
+  ],
+  good:"Gerçekler yukarıya ulaşmadığında en iyi niyetli kararlar bile yanlış bilgiye dayanır. Bu yüzden stratejik liderlik, dışarıdaki fırsatlara gösterdiği ilgiyi içerideki işleyişe de göstermelidir."
+ }
+},
+{
+ id:"b7", chapter:"Bölüm 15 ve 16 · Strateji, yönetim ve finansal sonuçlar",
+ title:"Strateji ne değildir: Yönetim ve çeyreklik kâr",
+ html:`
+<p class="bridge"><em>Birinci kısımda gördüğün üzere hedeflerden başlamak stratejinin yerine geçebilir. Rumelt iki benzer tuzağı daha anlatır.</em></p>
+<h3>Stratejiyi yönetimle karıştırmamak</h3>
+<p class="lead">Yönetim işleri bölmek, sorumluluk vermek, ölçmek ve takip etmek için gereklidir. Ama <strong>hangi işin yapılmaya değer olduğunu belirlemek başka bir iştir.</strong></p>
+<p>Robert McNamara her şeyin ölçülebilir hedeflerle yönetilebileceğine inanıyordu. Vietnam'da faaliyet ve sonuç göstergeleri izlendi; ama savaşın varsayımları ve uygulanabilir bir başarı yolu olup olmadığı yeterince sorgulanmadı. İyi ölçüm yanlış yönü doğru yapmaz. Drucker'ın hedeflerle yönetimi (Management by Objectives) ve Dengeli Puan Kartı (Balanced Scorecard) seçilmiş yönün uygulanmasını destekler, yönün kendisini üretmez.</p>
+<p><strong>DelKha</strong>'da bilgisayar bileşenleri işi, sektör değişip büyük müşteriler alımlarını kendileri örgütleyince sıkıştı; performans kartı bu tehdidi çözemedi. Yönetim müşterilerin hangi sorunlarını çözebileceğini ve becerilerinin nerede değerli olabileceğini araştırdı. Bazı denemeler sonuçsuz kaldı; sonunda <strong>fırçasız motor ve fan</strong> bilgisi yeni ürün ve ortaklıkların temeli oldu. Yeni iş geliştikten sonra performans kartı yeniden yararlı hâle geldi.</p>
+<h3>Bugünkü kârı strateji sanmamak</h3>
+<p>Bugünkü kâr; geçmiş yatırımların, markaların ve eski stratejik başarıların ürünüdür. Yüksek kâr yarınki rekabet gücünün kanıtı değildir. <strong>Zotich</strong>'te yönetim geçici bir talep düşüşüne araştırma kapasitesini azaltarak cevap verdi; rakipler tam tersini yaptı. Kâr kısa vadede toparlandı, ama müşterinin ileride isteyeceği performansı sunma yeteneği zayıfladı.</p>
+<p>Rumelt; çeyreklik kazanç tahmini baskısını, analist modellerinin küçük sapmaları büyütmesini ve yönetici ücretini hisse fiyatına bağlayan vekâlet teorisi yaklaşımını da sorgular. Önerisi, Bezos ve Buffett'ın mektuplarındaki gibi uzun vadeli yaklaşımı anlayan bir yatırımcı çevresi kurmak ve Steve Jobs tartışmasındaki gibi iyi ürün yaratabilme kapasitesini beslemektir.</p>`,
+ q:{
+  prompt:"Talep geçici olarak düştüğünde Zotich araştırma bütçesini kesti, rakipleri ise artırdı. Rumelt bu kararı nasıl değerlendirir?",
+  options:[
+   {t:"Kâr kısa vadede toparlandığı için başarılı bir stratejidir", f:"Rumelt'in uyarısı tam da budur: Muhasebe sonucunun hangi faaliyetlerden üretildiğine bakmadan başarı hükmü verilmemeli."},
+   {t:"Stratejiyle ilgisi yoktur; sadece bir muhasebe ayarıdır", f:"Araştırma kapasitesi gelecekteki rekabet gücünün kaynağıdır; onu kesmek doğrudan stratejik bir sonuç doğurur."},
+   {t:"Kısa vadeli kârı korurken, müşterinin ileride isteyeceği performansı sunma yeteneğini zayıflatan bir karardır", f:"", c:true}
+  ],
+  good:"Bugünkü tabloyu süslemek, yarının kazancını üretecek kapasiteyi aşındırabilir. Finansal göstergeler sonuçların dilidir; değeri yaratan gerçek iş ayrıca düşünülmelidir."
+ }
+},
+{
+ id:"b8", chapter:"Bölüm 17 ve 18 · Planlama ve Rumsfeld'in sorusu",
+ title:"Planlama, slogan ve akıllı grupların hataları",
+ html:`
+<h3>Stratejik planlama ne zaman işe yarar?</h3>
+<p class="lead">Telefon altyapısı, enerji kapasitesi, savunma sistemleri ya da maden yatırımları gibi uzun süreli alanlarda planlama değerlidir: İhtiyaçlar belli ölçüde öngörülebilir ve bugün kaynak ayırıp yıllarca hazırlık sürdürmek gerekir. Rumelt'in eleştirdiği, bu koşullar yokken hazırlanan tabloların stratejinin yerine geçirilmesidir.</p>
+<ul class="clean">
+<li><strong>Pandemi hazırlığı:</strong> Risk biliniyor, raporlar yazılıyor, tatbikatlar yapılıyordu; ama stokların yenilenmesi, yetkilerin netleşmesi ve uygulanabilir süreçler ihmal edilebildi. Aşı geliştirme ile üretimini paralel yürütme fikri ise belirli bir darboğaza odaklanan somut bir cevaptı (kitabın pandemi dönemi gözlemleri).</li>
+<li><strong>Su yönetimi:</strong> Kıtlığın sürekli hissedildiği yerde uzun vadeli hazırlık destek bulur; yağışlı dönemlerin kaygıyı unutturduğu yerde her kriz geçince dikkat dağılır.</li>
+<li><strong>Misyon ve vizyon:</strong> "Dünyaya katkı sunmak", "müşteri odaklı olmak" gibi ifadeler bağlılık yaratabilir ama hangi pazardan çıkılacağını söylemez.</li>
+<li><strong>Royalfield:</strong> Planlama, bölümlerin daha yüksek finansal hedeflere nasıl ulaşacağını anlatan bir bütçe pazarlığına dönüştü; teknolojik gerileme ve kaybedilen fırsatlar geri planda kaldı.</li>
+</ul>
+<h3>Rumsfeld'in sorusu</h3>
+<p><strong>OKCo</strong>'da ürünlerin eskimesi, teknik bilgi kaybı ve rekabet tehdidi doğru biçimde belirlenmişti. Yine de son strateji belgesinde müşteri memnuniyeti, verimlilik, marka gibi genel başlıklar yer aldı. Doğru analiz stratejiye dönüşmedi; çünkü karar yetkisi olan yönetim gerçek güçlüğü sahiplenmedi.</p>
+<p>Küçük bir uzman grubu da otomatik çözüm değildir. <strong>Domuzlar Körfezi</strong> ve <strong>Irak</strong> tartışmaları, iyi eğitimli ve güçlü insanların ortak varsayımlarını sınamadan ilerleyebildiğini gösterir; grup içi uyum ve hiyerarşi karşıt bilgiyi etkisizleştirir. Rumsfeld'le konuşmasında öne çıkan ayrım şudur: Her konuda uzmana erişebilmek ile iyi strateji oluşturacak bir <strong>yönteme</strong> sahip olmak farklı şeylerdir. Strateji atölyesinin gerekçesi buradan doğar.</p>`,
+ q:{
+  prompt:"OKCo'da danışmanlar sorunları doğru tespit ettiği hâlde son strateji belgesi genel başlıklardan oluştu. Rumelt bundan hangi sonucu çıkarır?",
+  options:[
+   {t:"Daha pahalı bir danışmanlık şirketiyle çalışmak gerekir", f:"Analiz zaten doğruydu. Sorun daha iyi tavsiye üretmekte değil, kararı verecek insanların problemi nasıl ele aldığında."},
+   {t:"Strateji belgesinin daha uzun ve ayrıntılı olması gerekir", f:"Uzunluk sorunu çözmez. Genel başlıklarla dolu daha uzun bir belge, gerçek güçlüğü yine görmezden gelebilir."},
+   {t:"Karar yetkisi olan yönetim gerçek güçlüğü sahiplenmedikçe doğru analiz bile stratejiye dönüşmez; strateji üretme sürecinin kendisi tasarlanmalıdır", f:"", c:true}
+  ],
+  good:"Analiz malzemeyi sağlar ama parçaları bir araya getirecek tasarım işini kendiliğinden yapmaz. Bu yüzden Rumelt, yöneticilerin birlikte düşündüğü bir süreç olarak strateji atölyesini önerir."
+ }
+},
+{
+ id:"b9", chapter:"Bölüm 19 ve 20 · Bir strateji atölyesinin işleyişi",
+ title:"FarmKor atölyesi ve bakış açısı araçları",
+ html:`
+<p class="bridge"><em>Birinci kısımda gördüğün üzere atölyenin özü daraltmak, seçmek ve takip etmektir. FarmKor bunun üç günde nasıl yaşandığını gösterir.</em></p>
+<p class="lead">Anonimleştirilmiş tarım teknolojisi şirketi FarmKor, sulama, besin maddeleri, sensörler ve yazılımla çiftçilere hizmet veriyordu. Genişleme kârlılığa ve ortak harekete dönüşmüyordu. CEO Joanna Walker'ın talebiyle başlayan süreç bir konuşma değil, küçük bir yönetici grubunun karar ürettiği bir çalışmaydı.</p>
+<table class="t"><thead><tr><th>Aşama</th><th>Ne oldu?</th></tr></thead><tbody>
+<tr><td>Hazırlık</td><td>Rumelt şirketi öğrendi, katılımcılarla görüştü, yazılı sorular sordu: Hangi projeler başarılı ya da başarısız oldu, öncelikler ve önlerindeki engeller neler?</td></tr>
+<tr><td>1. gün</td><td>Uzun öncelik listesiyle yüzleşme: Kalite, büyüme, müşteri, yenilik... Her şey öncelikliyse gerçek bir sıralama yoktur.</td></tr>
+<tr><td>2. gün</td><td>Rahatsız edici iç meseleler: Bölgeler kendi alanını koruyor, ürün satmak ile müşterinin sorununu çözmek karışıyor, yöneticilerin amaçları çatışıyor.</td></tr>
+<tr><td>Teşhis</td><td>FarmKor'un öncü olduğu teknolojiler artık yaygın ve ucuz; düşük değerli ürünlerin yetiştirildiği büyük alanlara genişleme, şirketi ölçekli rakiplerle karşı karşıya getirmiş. Kritik düğüm: azalan farklılaşma ile yanlış genişleme alanının birleşimi. Yön: bahçeler ve bağlar gibi yüksek değerli ürünler.</td></tr>
+<tr><td>3. gün</td><td>Besin uygulamalarını bitkiye, toprağa ve koşullara göre uyarlamak; öncü müşterilerle ortak geliştirme; özel teknik ekip; bir bölümün satışıyla sadeleşme. Yaklaşık 18 aylık ufuk, yazılı varsayımlar ve ortak taahhüt.</td></tr>
+</tbody></table>
+<h3>Bakış açısını değiştiren araçlar</h3>
+<ul class="clean">
+<li><strong>Gelecekteki başarı yazısı:</strong> Şirket hakkında ileride çıkabilecek bir başarı haberini hayal edip oraya götüren adımları düşünmek.</li>
+<li><strong>Başarısızlık yaşanmış gibi düşünmek:</strong> Gözden kaçan nedenleri önceden açığa çıkarmak.</li>
+<li><strong>Geçmişe kısa bir tavsiye:</strong> O gün zaten elde olan bilgilerle neyin fark edilebileceğini sorgulamak.</li>
+<li><strong>Anlık strateji:</strong> Kısa sürede tek bir somut eylem yazmak.</li>
+<li><strong>"Neden zor?" sorusu ve içe dönük analiz:</strong> Fiyat baskısı yaşayan bir kimya şirketinde satış temsilcilerinin müşteriye sağlanan ekonomik değeri gösterecek bilgi ve eğitimden yoksun olduğunun fark edilmesi gibi.</li>
+<li><strong>Kırmızı takım (red team) ve referans grupları (reference class):</strong> Planı bir rakibin gözünden zorlamak; benzer koşullardaki kuruluşların sonuçlarına bakarak aşırı iyimserliği azaltmak.</li>
+</ul>`,
+ q:{
+  prompt:"FarmKor atölyesinde ortaya çıkan kritik düğüm neydi?",
+  options:[
+   {t:"Satış ekibinin yeterince çalışmaması", f:"Atölye özellikle bunun ötesine geçti: Kritik düğüm yalnızca satış eksikliği değildi."},
+   {t:"Azalan farklılaşma (teknolojilerin yaygınlaşıp ucuzlaması) ile düşük değerli ürünlerin büyük alanlarına yapılan yanlış genişlemenin birleşimi", f:"", c:true},
+   {t:"Şirketin yeterince çok öncelik belirlememiş olması", f:"Tam tersi: İlk gün ortaya çıkan uzun öncelik listesi, dikkatin çok fazla yöne bölündüğünü gösterdi."}
+  ],
+  good:"Teşhis netleşince yön de netleşti: bahçeler ve bağlar gibi daha yüksek değerli ürünlere yeniden odaklanmak, ardından bu yönü yaklaşık 18 aylık somut kararlara çevirmek."
+ }
+}
+];
+
+const CHECKLIST = [
+ "Bir hedefi duyduğumda önce \"Bunu engelleyen güçlük ne?\" diye soruyorum.",
+ "Sorunları topluyor, grupluyor ve önem ile müdahale edilebilirliğe göre daraltıyorum.",
+ "Kritik düğümü hem önemli hem de elimdeki imkânlarla aşılabilir olan noktada arıyorum (ASC).",
+ "Bir çözümü bulmak için sorunu yanlış sınırlayan gizli varsayımları sorguluyorum.",
+ "Eylemlerimin birbirini boşa çıkarmadığını, mümkünse birbirini güçlendirdiğini kontrol ediyorum.",
+ "Teşhis koyarken kullandığım çerçeveyi ve benzetmelerin sınırlarını hesaba katıyorum.",
+ "Veriyi farklı karşılaştırmalarla ve farklı bölümlemelerle inceliyor, ilk görünen ilişkiye hemen inanmıyorum.",
+ "\"Neden özellikle ben kazanırım?\" sorusuna bir avantaj mekanizmasıyla cevap verebiliyorum.",
+ "Büyük hedefleri makul sürede yapılabilecek yakın görevlere çeviriyorum.",
+ "Ölçmeyi ve yönetmeyi stratejiyle, bugünkü sonuçları da geleceğin sağlığıyla karıştırmıyorum.",
+ "Bir ya da iki önceliğe odaklanıyor, diğerlerine şimdilik hayır diyebiliyorum.",
+ "Varsayımlarımı yazıyor, gelişmeleri takip ediyor ve gerektiğinde yönümü ayarlıyorum."
+];
+
+const KEYQ = [
+ "İlerlemeyi asıl durduran şey ne?",
+ "Bu güçlük hem önemli hem de müdahale edilebilir mi?",
+ "İstediğimiz şeyi neden hâlâ gerçekleştiremedik?",
+ "Sorunu hangi çerçeveyle görüyorum; başka bir çerçeve neyi değiştirirdi?",
+ "Bu veriyi neyle karşılaştırıyorum; başka bir karşılaştırma ne gösterirdi?",
+ "Neden özellikle biz kazanırız? Avantajımız hangi mekanizmayla sürüyor?",
+ "Eylemlerim birbirini destekliyor mu, yoksa birbirini boşa mı çıkarıyor?",
+ "Bu bir hedef mi, yoksa ne yapılacağını söyleyen bir yakın görev mi?",
+ "Bu kararı uygulayacak yetki ve güç kimde?",
+ "Hangi varsayıma dayanıyorum ve bunun yanlış olduğunu nasıl anlarım?"
+];
+
+(function(){
+"use strict";
+var STORE_KEY = "crux_isil_tabag_v1";
+var FORM_URL = "https://formsubmit.co/ajax/isiltabag@gmail.com";
+var LETTERS = ["A","B","C","D","E"];
+var FINAL_TEXT = "Çalışmanı tamamladın! Tamamlaman gereken bölüm bu kadardı. Sonuçlarını indir ve Işıl Tabağ'a gönder.";
+var CONT_TEXT = "Devam etmek istersen edebilirsin. Kitapta çok güzel başka öğretiler de var. Devamını kendin için yap; kimseye göndermen gerekmiyor.";
+
+var SUM2 = {
+ b1:"Strateji bir yolculuktur: Salesforce'un internetten sunulan yazılımdan AppExchange ile bir platforma dönüşmesi ve Ryanair'in ucuzluk niyetinden ikincil havalimanlarına, oradan pandemi döneminde dayanıklılık sorununa uzanan aşamaları.",
+ b2:"Büyüme güçlüğü: 'Büyüme yavaşladı' demenin teşhis olmaması, genişleyen pazara olağanüstü değer (Varnico), bahçeyi ayıklamak (McGraw-Hill'den S&P Global'e), John Boyd'un OODA döngüsü, akıllı satın almalar ve Uber ile WeWork örnekleri.",
+ b3:"Güç ve yetki: Stratejinin güç kullanımı içermesi; WebCo'da güzel metin yerine gerçek karar, MetalCo'da küçük başarılarla güvenilirlik kazanmak, GrandCo'da Nora'nın sanal bölümü ve SciCo'da yetkinin sınırları.",
+ b4:"Analitik araçlar: Project T'de elle değiştirilen geri ödeme grafiği, kısa geri ödeme şartının arkasındaki güven sorunu, BCG matrisi ve örgütsel siyaset, disruption kavramının BlackBerry, Kodak ve Britannica örnekleriyle sınırları.",
+ b5:"Yenilik: Uzun ve kısa teknoloji dalgaları, Intuitive Surgical ve Zoom'da teknolojinin doğru ihtiyaçla eşleşmesi, Dropbox'ın başarıdan sonraki yeni güçlüğü, Farnsworth ve RCA ile tamamlayıcı varlıkların önemi.",
+ b6:"Kurumsal işlev bozukluğu: General Motors'ta bilinenlerin birleştirilememesi, Nokia'da baskıcı iletişim ve Symbian'ın yükü, IBM'de Lou Gerstner'in bütünleşik çözüm dönüşümü ve başarının dikkati gevşetmesi.",
+ b7:"Strateji ne değildir: McNamara ve ölçüm, hedeflerle yönetim ve Dengeli Puan Kartı'nın sınırları, DelKha'nın fırçasız motor ve fan bilgisiyle yeni işe geçişi, Zotich'te araştırmayı kesmenin bedeli, analist modelleri ve uzun vadeli yatırımcı.",
+ b8:"Planlama ve Rumsfeld'in sorusu: Planlamanın işe yaradığı alanlar, pandemi hazırlığı, su yönetimi, misyon ve vizyon açıklamaları, Royalfield'in bütçe pazarlığı, OKCo'da stratejiye dönüşmeyen doğru analiz, Domuzlar Körfezi ve Irak'ta grup içi uyum.",
+ b9:"FarmKor atölyesi: Üç günlük süreç, uzun öncelik listesiyle yüzleşme, azalan farklılaşma ve yanlış genişleme teşhisi, yüksek değerli ürünlere odak; gelecekteki başarı yazısı, başarısızlık egzersizi, kırmızı takım ve referans grupları gibi araçlar."
+};
+
+var VIEWS = ["cover"];
+PART1.forEach(function(p){VIEWS.push(p.id);});
+VIEWS.push("r1");
+PART2.forEach(function(p){VIEWS.push(p.id);});
+VIEWS.push("end");
+var PAGES = {};
+PART1.forEach(function(p){p.part=1;PAGES[p.id]=p;});
+PART2.forEach(function(p){p.part=2;PAGES[p.id]=p;});
+
+function blank(){return {v:1, view:"cover", a:{}, b:{}, name:"", email:"", checks:[], startedAt:null, updatedAt:null};}
+var S = load();
+var SAVED_VIEW = S.view;
+
+function load(){
+ try{
+  var raw = window.localStorage.getItem(STORE_KEY);
+  if(!raw) return blank();
+  var o = JSON.parse(raw);
+  if(!o || o.v!==1) return blank();
+  var b = blank();
+  for(var k in b){ if(!(k in o)) o[k]=b[k]; }
+  if(VIEWS.indexOf(o.view)<0) o.view="cover";
+  return o;
+ }catch(e){ return blank(); }
+}
+function save(){
+ S.updatedAt = new Date().toISOString();
+ try{ window.localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){}
+}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function $(id){return document.getElementById(id);}
+function nowTR(){
+ try{ return new Date().toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"})+" (İstanbul saati)"; }
+ catch(e){ return new Date().toString(); }
+}
+function rec(p){ var bag = p.part===1 ? S.a : S.b; if(!bag[p.id]) bag[p.id]={att:[],done:false}; return bag[p.id]; }
+function correctIdx(p){ for(var i=0;i<p.q.options.length;i++){ if(p.q.options[i].c) return i; } return -1; }
+function hasProgress(){ return Object.keys(S.a).length>0 || Object.keys(S.b).length>0 || SAVED_VIEW!=="cover"; }
+
+/* ---------- report ---------- */
+function report(){
+ var rows=[], first=0, secs={};
+ Object.keys(SECTIONS).forEach(function(k){secs[k]={name:SECTIONS[k],total:0,first:0};});
+ PART1.forEach(function(p,i){
+  var r=S.a[p.id]||{att:[],done:false}, ci=correctIdx(p);
+  var firstOk = r.att.length>0 && r.att[0]===ci;
+  if(firstOk) first++;
+  secs[p.sec].total++; if(firstOk) secs[p.sec].first++;
+  rows.push({n:i+1,p:p,r:r,firstOk:firstOk,
+   firstText: r.att.length? LETTERS[r.att[0]]+") "+p.q.options[r.att[0]].t : "(cevaplanmadı)",
+   all: r.att.map(function(x,j){return (j+1)+". deneme: "+LETTERS[x]+") "+p.q.options[x].t+(x===ci?" (doğru)":" (yanlış)");}),
+   count:r.att.length});
+ });
+ return {rows:rows, first:first, total:PART1.length, secs:secs,
+  revisit: rows.filter(function(x){return !x.firstOk;}),
+  complete: rows.every(function(x){return x.r.done;})};
+}
+
+/* ---------- rendering ---------- */
+var app;
+function go(view){
+ if(VIEWS.indexOf(view)<0) view="cover";
+ S.view=view; if(view!=="cover" && !S.startedAt) S.startedAt=new Date().toISOString();
+ save(); render();
+ window.scrollTo(0,0);
+ try{ app.focus({preventScroll:true}); }catch(e){}
+}
+function setProgress(){
+ var v=S.view, bar=$("bar"), lab=$("progLabel"), tag=$("partTag");
+ var i1 = PART1.findIndex(function(p){return p.id===v;});
+ var i2 = PART2.findIndex(function(p){return p.id===v;});
+ if(v==="cover"){ bar.style.width="0%"; lab.textContent="Başlangıç · Işıl Tabağ'ın mektubu"; tag.textContent="Giriş"; }
+ else if(i1>=0){ bar.style.width=((i1+1)/PART1.length*100)+"%"; lab.textContent="Birinci kısım · Sayfa "+(i1+1)+" / "+PART1.length; tag.textContent="Birinci kısım"; }
+ else if(v==="r1"){ bar.style.width="100%"; lab.textContent="Birinci kısım · Sonuçlar"; tag.textContent="Birinci kısım"; }
+ else if(i2>=0){ bar.style.width=((i2+1)/(PART2.length+1)*100)+"%"; lab.textContent="İkinci kısım (isteğe bağlı) · Sayfa "+(i2+1)+" / "+(PART2.length+1); tag.textContent="İkinci kısım"; }
+ else { bar.style.width="100%"; lab.textContent="İkinci kısım (isteğe bağlı) · Sayfa "+(PART2.length+1)+" / "+(PART2.length+1); tag.textContent="İkinci kısım"; }
+}
+function render(){
+ setProgress();
+ var v=S.view;
+ if(v==="cover") return renderCover();
+ if(v==="r1") return renderResults();
+ if(v==="end") return renderEnd();
+ return renderPage(PAGES[v]);
+}
+
+function renderCover(){
+ var resume = hasProgress() ? '<div class="resume" id="resumeBox"><p><strong>Kaldığın yerden devam edebilirsin.</strong> Daha önce başladığın çalışma bu tarayıcıda kaydedildi; cevapların duruyor.</p><div class="btnrow"><button class="btn" id="btnResume">Kaldığın yerden devam et</button><button class="btn sec" id="btnRestart">Baştan başla</button></div></div>' : "";
+ app.innerHTML = '<div class="cover-hero"><p class="eyebrow">Etkileşimli okuma çalışması</p><h1>The Crux</h1><div class="by">Richard Rumelt · Liderler nasıl stratejist olur?</div></div>'+
+ resume+
+ '<div class="card"><div class="letter">'+
+ '<p>Sevgili öğrencim,</p>'+
+ '<p>İş dünyasına, yönetime ve stratejiye ilgi duyduğunu biliyorum; bu yüzden sana çok kıymetli bulduğum bir kitabı önermek istiyorum: Richard Rumelt\'in <em>The Crux</em> kitabı. Rumelt, strateji alanının en saygın düşünürlerinden biri ve bu kitapta çok basit ama çok güçlü bir fikri anlatıyor: Strateji, büyük hedefler ilan etmek değil; ilerlemeyi asıl kilitleyen <strong>kritik düğümü</strong> bulup ona karşı akıllı ve tutarlı adımlar tasarlamaktır.</p>'+
+ '<p>Bu kitabı sana önermemin asıl nedeni, kazandıracağı düşünme alışkanlığı. Okudukça bir şirketin, bir kulübün, hatta kendi ders programının önündeki engellere farklı bakmaya başlayacaksın. "Asıl sorun ne?", "Bunun hangi kısmını gerçekten değiştirebilirim?", "Yaptığım işler birbirini destekliyor mu?" diye sormayı öğreneceksin. Netflix, SpaceX, Google, Nokia, IBM gibi şirketlerin hikâyeleri bu soruları somut hâle getiriyor. İleride işletme, ekonomi ya da mühendislik okumayı düşünüyorsan sağlam bir temel kazanacaksın; düşünmüyorsan da hayatta karşına çıkacak karmaşık sorunları daha net görebileceksin.</p>'+
+ '<p>Senin için hazırladığım bu çalışma iki kısımdan oluşuyor. <strong>Birinci kısım</strong> kısa: Kitabın en önemli fikirlerini on sayfada, her sayfada bir düşündüren soruyla anlatıyor. Yanlış cevap vermekten çekinme; her yanlışın ardından bir açıklama göreceksin ve yeniden deneyebileceksin. Bitirdiğinde sonuçlarını indir ve bana gönder; nasıl düşündüğünü görmek benim için çok kıymetli. <strong>İkinci kısım</strong> ise tamamen senin için. Merak edersen kitabın geri kalan güzelliklerini orada bulacaksın.</p>'+
+ '<p>Küçük bir not: Kitap 2022\'de yayımlandı. Şirketler ve teknolojiler hakkındaki örnekler o döneme ait tarihsel örneklerdir. Önemli olan örneklerin kendisi değil, arkalarındaki düşünme biçimi.</p>'+
+ '<p>Keyifli okumalar dilerim. Merakını hiç kaybetme.</p>'+
+ '<p class="sign">Sevgilerimle,<br>Işıl Tabağ</p>'+
+ '</div><div class="nav"><span></span><button class="btn" id="btnStart">'+(hasProgress()?"Birinci kısmın başına git":"Birinci kısma başla")+'</button></div></div>';
+ $("btnStart").onclick=function(){go("a1");};
+ if($("btnResume")){
+  $("btnResume").onclick=function(){ var v=SAVED_VIEW!=="cover"?SAVED_VIEW:firstUnfinished(); go(v); };
+  $("btnRestart").onclick=function(){ if(window.confirm("Tüm cevapların silinecek ve çalışmaya baştan başlayacaksın. Emin misin?")){ S=blank(); SAVED_VIEW="cover"; save(); go("a1"); } };
+ }
+}
+function firstUnfinished(){
+ for(var i=0;i<PART1.length;i++){ var r=S.a[PART1[i].id]; if(!r||!r.done) return PART1[i].id; }
+ return "r1";
+}
+
+function renderPage(p){
+ var r = rec(p), ci = correctIdx(p);
+ var opts = p.q.options.map(function(o,i){
+  var cls="opt", dis="";
+  if(r.att.indexOf(i)>=0 && i!==ci){cls+=" wrong";dis=" disabled";}
+  if(r.done){dis=" disabled"; if(i===ci) cls+=" right";}
+  return '<button type="button" class="'+cls+'" data-i="'+i+'"'+dis+'><span class="k">'+LETTERS[i]+'</span><span>'+esc(o.t)+'</span></button>';
+ }).join("");
+ var idx = VIEWS.indexOf(p.id);
+ var nextLabel = p.id==="a10" ? "Sonuçlara geç" : (p.id===PART2[PART2.length-1].id ? "Görsel özete geç" : "Sonraki");
+ var gate = p.part===1 && !r.done;
+ var qn = p.part===1 ? "Düşünme sorusu "+(PART1.indexOf(p)+1)+" / "+PART1.length : "Düşünme sorusu";
+ app.innerHTML = '<article class="card"><p class="eyebrow">'+esc(p.chapter)+(p.part===1?' · '+esc(SECTIONS[p.sec]):'')+'</p><h1>'+esc(p.title)+'</h1>'+p.html+
+ '<section class="q" aria-labelledby="qp"><div class="qh">'+qn+'</div><div class="qp" id="qp">'+esc(p.q.prompt)+'</div><div class="opts" id="opts">'+opts+'</div><div class="fb" id="fb" role="status" aria-live="polite"></div></section>'+
+ '<div class="nav"><button class="btn sec" id="btnPrev">Önceki</button><span class="hint" id="hint">'+(gate?"Devam etmek için soruyu doğru cevapla.":"")+'</span><button class="btn" id="btnNext"'+(gate?" disabled":"")+'>'+nextLabel+'</button></div></article>';
+ if(r.done) showFb(p,ci,true);
+ else if(r.att.length){ showFb(p,r.att[r.att.length-1],false); }
+ Array.prototype.forEach.call(document.querySelectorAll("#opts .opt"),function(b){
+  b.onclick=function(){ answer(p,parseInt(b.getAttribute("data-i"),10)); };
+ });
+ $("btnPrev").onclick=function(){ go(VIEWS[idx-1]); };
+ $("btnNext").onclick=function(){ if(p.part===1 && !rec(p).done) return; go(VIEWS[idx+1]); };
+}
+function showFb(p,i,ok){
+ var fb=$("fb");
+ if(ok){ fb.className="fb show good"; fb.innerHTML="<b>Doğru.</b>"+esc(p.q.good); }
+ else { fb.className="fb show bad"; fb.innerHTML="<b>Bu cevap doğru değil.</b>"+esc(p.q.options[i].f)+" <em>Tekrar dene.</em>"; }
+}
+function answer(p,i){
+ var r=rec(p); if(r.done) return;
+ if(r.att.indexOf(i)>=0) return;
+ r.att.push(i);
+ var ci=correctIdx(p);
+ if(i===ci){ r.done=true; }
+ save();
+ var y=window.scrollY; renderPage(p); window.scrollTo(0,y);
+ var fb=$("fb"); if(fb && fb.scrollIntoView){ try{fb.scrollIntoView({block:"nearest"});}catch(e){} }
+}
+
+function reportHTML(R, withLinks){
+ var secRows = Object.keys(R.secs).map(function(k){var s=R.secs[k];return '<tr><td>'+esc(s.name)+'</td><td>'+s.first+' / '+s.total+'</td></tr>';}).join("");
+ var rev = R.revisit.length ? '<ul class="clean">'+R.revisit.map(function(x){return '<li>Soru '+x.n+': '+esc(x.p.title)+(withLinks?' <a href="#" data-go="'+x.p.id+'">Sayfaya dön</a>':'')+'</li>';}).join("")+'</ul>' : '<p>Tüm soruları ilk denemede doğru cevapladın. Tekrar gözden geçirmen gereken bir soru yok.</p>';
+ return '<div class="score"><span class="big" id="scoreNum">'+R.first+' / '+R.total+'</span><span>soruyu ilk denemede doğru cevapladın.</span></div>'+
+ '<h3>Bölüm bazında dağılım</h3><table class="t" id="secTable"><thead><tr><th>Bölüm</th><th>İlk denemede doğru</th></tr></thead><tbody>'+secRows+'</tbody></table>'+
+ '<h3>Tekrar gözden geçirmen gereken sorular</h3><div id="revisit">'+rev+'</div>';
+}
+
+function renderResults(){
+ var R=report();
+ if(!R.complete){
+  var miss = R.rows.filter(function(x){return !x.r.done;});
+  app.innerHTML='<div class="card"><p class="eyebrow">Birinci kısım</p><h1>Neredeyse bitti</h1><div class="missing"><p>Sonuçlarını görebilmek için şu soruları da cevaplaman gerekiyor:</p><ul class="clean">'+
+   miss.map(function(x){return '<li><a href="#" data-go="'+x.p.id+'">Soru '+x.n+': '+esc(x.p.title)+'</a></li>';}).join("")+'</ul></div><div class="nav"><button class="btn sec" id="btnPrev">Önceki</button><span></span></div></div>';
+  bindGo(); $("btnPrev").onclick=function(){go("a10");};
+  return;
+ }
+ app.innerHTML='<div class="card" id="resultsCard"><p class="eyebrow">Birinci kısım · Sonuçlar</p>'+
+ '<p class="final-msg" id="finalMsg">'+esc(FINAL_TEXT)+'</p>'+
+ '<h2>Raporun</h2>'+reportHTML(R,true)+
+ '<h2>Sonuçlarını kaydet ve gönder</h2>'+
+ '<form class="f" id="sendForm" novalidate>'+
+ '<div><label for="fName">Ad Soyad <span class="req">*</span></label><input type="text" id="fName" name="name" autocomplete="name" required value="'+esc(S.name)+'"><div class="err" id="errName">Lütfen adını ve soyadını yaz.</div></div>'+
+ '<div><label for="fEmail">E-posta <span class="en">(isteğe bağlı)</span></label><input type="email" id="fEmail" name="email" autocomplete="email" value="'+esc(S.email)+'"><div class="err" id="errEmail">Geçerli bir e-posta adresi yaz ya da bu alanı boş bırak.</div></div>'+
+ '<div class="btnrow"><button type="button" class="btn" id="btnDownload">Sonuçları indir</button><button type="button" class="btn acc" id="btnSend">Işıl Tabağ\'a Gönder</button></div>'+
+ '</form><div class="status" id="status" role="status" aria-live="polite"></div>'+
+ '<p class="note">"Sonuçları indir" düğmesi yazdırılabilir bir dosya indirir; dosyayı açıp "Yazdır / PDF olarak kaydet" düğmesine basarak PDF olarak saklayabilirsin. "Işıl Tabağ\'a Gönder" düğmesi yalnızca birinci kısımdaki cevaplarını ve raporunu gönderir.</p>'+
+ '<div class="continue"><p id="contText">'+esc(CONT_TEXT)+'</p><div class="nav"><button class="btn sec" id="btnPrev">Önceki</button><span></span><button class="btn" id="btnCont">Devam et</button></div></div></div>';
+ bindGo();
+ $("fName").oninput=function(){S.name=this.value; save(); if(this.value.trim()) $("errName").classList.remove("show");};
+ $("fEmail").oninput=function(){S.email=this.value; save(); $("errEmail").classList.remove("show");};
+ $("btnDownload").onclick=doDownload;
+ $("btnSend").onclick=doSend;
+ $("sendForm").onsubmit=function(e){e.preventDefault();};
+ $("btnPrev").onclick=function(){go("a10");};
+ $("btnCont").onclick=function(){go("b1");};
+}
+function bindGo(){
+ Array.prototype.forEach.call(document.querySelectorAll("[data-go]"),function(a){
+  a.onclick=function(e){e.preventDefault(); go(a.getAttribute("data-go"));};
+ });
+}
+function status(kind,msg){ var s=$("status"); s.className="status show "+kind; s.textContent=msg; }
+function validate(){
+ var n=$("fName").value.trim(), e=$("fEmail").value.trim(), ok=true;
+ S.name=n; S.email=e; save();
+ if(!n){ $("errName").classList.add("show"); $("fName").focus(); ok=false; }
+ if(e && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){ $("errEmail").classList.add("show"); if(ok) $("fEmail").focus(); ok=false; }
+ if(!ok) status("no", !n ? "Devam etmeden önce Ad Soyad alanını doldurman gerekiyor." : "E-posta adresini kontrol et.");
+ return ok ? {name:n,email:e} : null;
+}
+
+/* ---------- download ---------- */
+function buildDownload(who){
+ var R=report(), when=nowTR();
+ var css='body{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#2b2f36;max-width:820px;margin:24px auto;padding:0 20px;line-height:1.55;font-size:14px}h1{color:#0f1f3d;font-size:24px;margin:0 0 4px}h2{color:#0f1f3d;font-size:18px;border-bottom:2px solid #0f1f3d;padding-bottom:4px;margin-top:28px}h3{color:#0f1f3d;font-size:15px;margin:16px 0 6px}table{border-collapse:collapse;width:100%;margin:8px 0 14px}th,td{border:1px solid #cfd6e2;padding:6px 8px;text-align:left;vertical-align:top}th{background:#eef1f6}.sub{color:#5b6472;margin:0 0 16px}.ok{color:#1d5c4a;font-weight:600}.no{color:#8a2d2d;font-weight:600}.bar{background:#0f1f3d;color:#fff;padding:12px 16px;border-radius:8px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}.bar button{background:#b0582a;border:0;color:#fff;font-weight:700;padding:10px 16px;border-radius:6px;cursor:pointer;font-size:14px}.score{font-size:20px;font-weight:700;color:#0f1f3d}ul{padding-left:20px}li{margin-bottom:4px}.ck{list-style:none;padding:0}.ck li{display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid #e3e7ee;padding:6px 0}.ck li span.b{flex:0 0 14px;height:14px;border:1.5px solid #0f1f3d;border-radius:3px;margin-top:3px}.page{page-break-before:always}@media print{.bar{display:none}body{margin:0}h2{page-break-after:avoid}tr{page-break-inside:avoid}}';
+ var h='<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><title>The Crux · Sonuçlar · '+esc(who.name)+'</title><style>'+css+'</style></head><body>';
+ h+='<div class="bar"><button type="button" onclick="window.print()">Yazdır / PDF olarak kaydet</button><span>Yazdırma penceresinde hedef olarak "PDF olarak kaydet"i seçebilirsin.</span></div>';
+ h+='<h1>The Crux · Richard Rumelt</h1><p class="sub">Birinci kısım sonuçları · Hazırlayan: Işıl Tabağ</p>';
+ h+='<table><tr><th>Ad Soyad</th><td>'+esc(who.name)+'</td></tr><tr><th>E-posta</th><td>'+esc(who.email||"(belirtilmedi)")+'</td></tr><tr><th>Tarih</th><td>'+esc(when)+'</td></tr></table>';
+ h+='<h2>Rapor</h2><p class="score">İlk denemede doğru: '+R.first+' / '+R.total+'</p>';
+ h+='<h3>Bölüm bazında dağılım</h3><table><tr><th>Bölüm</th><th>İlk denemede doğru</th></tr>'+Object.keys(R.secs).map(function(k){var s=R.secs[k];return '<tr><td>'+esc(s.name)+'</td><td>'+s.first+' / '+s.total+'</td></tr>';}).join("")+'</table>';
+ h+='<h3>Tekrar gözden geçirilecek sorular</h3>'+(R.revisit.length?'<ul>'+R.revisit.map(function(x){return '<li>Soru '+x.n+': '+esc(x.p.title)+'</li>';}).join("")+'</ul>':'<p>Yok. Tüm sorular ilk denemede doğru cevaplandı.</p>');
+ h+='<h2>Cevapların</h2><table><tr><th>#</th><th>Soru</th><th>İlk cevabın</th><th>İlk denemede</th><th>Deneme sayısı</th><th>Tüm denemeler</th></tr>';
+ R.rows.forEach(function(x){
+  h+='<tr><td>'+x.n+'</td><td>'+esc(x.p.q.prompt)+'</td><td>'+esc(x.firstText)+'</td><td class="'+(x.firstOk?'ok':'no')+'">'+(x.firstOk?'Doğru':'Yanlış')+'</td><td>'+x.count+'</td><td>'+x.all.map(esc).join('<br>')+'</td></tr>';
+ });
+ h+='</table>';
+ h+='<h2 class="page">Kitaptan öğrendiklerin</h2><p>Birinci kısımda öğrendiğin her bilginin özeti:</p>';
+ PART1.forEach(function(p,i){ h+='<h3>'+(i+1)+'. '+esc(p.title)+' <span style="color:#5b6472;font-weight:400">('+esc(p.chapter)+')</span></h3><ul>'+p.learn.map(function(l){return '<li>'+esc(l)+'</li>';}).join("")+'</ul>'; });
+ h+='<h2>İkinci kısımda seni bekleyenler</h2><p>İsteğe bağlı ikinci kısımda, birinci kısımda yer almayan şu konular var:</p><ul>';
+ PART2.forEach(function(p){ h+='<li><strong>'+esc(p.title)+'</strong> ('+esc(p.chapter)+'): '+esc(SUM2[p.id])+'</li>'; });
+ h+='</ul>';
+ h+='<h2>Strateji kontrol listesi</h2><p>Kitabın bakış açısını kendine mal ettiğini gösteren kontrol listesi. Kendini değerlendir ve işaretle:</p><ul class="ck">'+CHECKLIST.map(function(c){return '<li><span class="b"></span><span>'+esc(c)+'</span></li>';}).join("")+'</ul>';
+ h+='<p class="sub" style="margin-top:24px">Not: Kitap 2022\'de yayımlanmıştır; şirketler, teknolojiler ve sayılarla ilgili örnekler o döneme ait tarihsel örneklerdir.</p></body></html>';
+ return h;
+}
+function slug(s){ return s.toLowerCase().replace(/ç/g,"c").replace(/ğ/g,"g").replace(/ı/g,"i").replace(/ö/g,"o").replace(/ş/g,"s").replace(/ü/g,"u").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ogrenci"; }
+function doDownload(){
+ var who=validate(); if(!who) return;
+ var html=buildDownload(who);
+ var blob=new Blob([html],{type:"text/html;charset=utf-8"});
+ var url=URL.createObjectURL(blob);
+ var a=document.createElement("a"); a.href=url; a.download="the-crux-sonuclar-"+slug(who.name)+".html";
+ document.body.appendChild(a); a.click(); document.body.removeChild(a);
+ setTimeout(function(){URL.revokeObjectURL(url);},4000);
+ status("ok","Sonuç dosyan indirildi. Dosyayı açıp 'Yazdır / PDF olarak kaydet' düğmesiyle PDF olarak saklayabilirsin.");
+}
+
+/* ---------- send ---------- */
+function buildPayload(who){
+ var R=report();
+ var d={
+  "_subject":"The Crux cevapları - "+who.name,
+  "_template":"table",
+  "_captcha":"false",
+  "Ad Soyad":who.name,
+  "E-posta":who.email||"(belirtilmedi)",
+  "Gönderim zamanı":nowTR(),
+  "İlk denemede doğru":R.first+" / "+R.total,
+  "Bölüm bazında dağılım":Object.keys(R.secs).map(function(k){var s=R.secs[k];return s.name+": "+s.first+"/"+s.total;}).join(" | "),
+  "Tekrar gözden geçirilecek sorular":R.revisit.length?R.revisit.map(function(x){return "Soru "+x.n+" ("+x.p.title+")";}).join("; "):"Yok"
+ };
+ if(who.email) d["_replyto"]=who.email;
+ R.rows.forEach(function(x){
+  d["Soru "+(x.n<10?"0":"")+x.n+" - "+x.p.title]="İlk cevap: "+x.firstText+" | İlk denemede: "+(x.firstOk?"Doğru":"Yanlış")+" | Deneme sayısı: "+x.count+" | Tüm denemeler: "+x.all.join(" ; ");
+ });
+ return d;
+}
+var sending=false;
+function doSend(){
+ if(sending) return;
+ var who=validate(); if(!who) return;
+ var payload=buildPayload(who);
+ sending=true; var btn=$("btnSend"); btn.disabled=true; btn.textContent="Gönderiliyor...";
+ status("info","Sonuçların gönderiliyor, lütfen bekle...");
+ var ctrl = window.AbortController ? new AbortController() : null;
+ var to = setTimeout(function(){ if(ctrl) ctrl.abort(); },20000);
+ fetch(FORM_URL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload),signal:ctrl?ctrl.signal:undefined})
+ .then(function(res){ return res.json().catch(function(){return {};}).then(function(j){return {ok:res.ok,j:j};}); })
+ .then(function(o){
+  var succ = o.ok && (o.j.success===true || o.j.success==="true");
+  if(succ){ S.sentAt=new Date().toISOString(); save(); status("ok","Teşekkürler! Sonuçların Işıl Tabağ'a başarıyla gönderildi."); }
+  else if(o.j && o.j.message && /activat/i.test(o.j.message)){ status("no","Gönderim henüz tamamlanamadı: Bu form ilk kez kullanıldığı için Işıl Tabağ'ın e-posta adresine bir onay bağlantısı gönderildi. Onaylandıktan sonra lütfen yeniden gönder. Bu arada sonuçlarını indirmeyi unutma."); }
+  else { status("no","Gönderim sırasında bir sorun oluştu. Lütfen biraz sonra tekrar dene; olmazsa sonuçlarını indirip dosyayı Işıl Tabağ'a e-postayla gönderebilirsin."); }
+ })
+ .catch(function(){ status("no","Gönderilemedi. İnternet bağlantını kontrol edip tekrar dene; olmazsa sonuçlarını indirip dosyayı Işıl Tabağ'a e-postayla gönderebilirsin."); })
+ .then(function(){ clearTimeout(to); sending=false; var b=$("btnSend"); if(b){ b.disabled=false; b.textContent="Işıl Tabağ'a Gönder"; } });
+}
+
+/* ---------- final visual summary ---------- */
+function renderEnd(){
+ var checks = CHECKLIST.map(function(c,i){ return '<li><input type="checkbox" id="ck'+i+'" data-i="'+i+'"'+(S.checks[i]?" checked":"")+'><label for="ck'+i+'">'+esc(c)+'</label></li>'; }).join("");
+ app.innerHTML='<div class="card"><p class="eyebrow">İkinci kısım · Kitabın tamamı</p><h1>Görsel özet: Bir stratejist gibi düşünmek</h1>'+
+ '<p class="lead">Kitabın yirmi bölümü aynı soruya farklı açılardan döner: İlerlemeyi asıl durduran şey nedir ve elimizdeki imkânlarla bunun hangi kısmını gerçekten değiştirebiliriz?</p>'+
+ '<div class="schema" aria-label="Kitabın şeması">'+
+  '<div class="core"><b>Kritik düğüm (crux)</b><span>Bir güçlükler yığınının içinde, hem önemli hem de aşılabilir olan ve aşıldığında ilerlemeyi belirgin biçimde kolaylaştıran nokta.</span></div>'+
+  '<div class="arrow">Güçlükten eyleme dört adım</div>'+
+  '<div class="grid">'+
+   '<div class="box"><h4>1 · Teşhis</h4><p>Bölüm 1, 2, 8, 9, 10. Belirtilerin altındaki mekanizmayı anla: yeniden çerçevele, karşılaştır, veriyi farklı böl, varsayımları sorgula.</p><div class="sol"><b>Tuzak:</b> hedeflerden başlamak, hazır etiketler, yanıltıcı benzetmeler.</div></div>'+
+   '<div class="box"><h4>2 · Odak (ASC)</h4><p>Bölüm 4, 5, 11. Hem önemli hem müdahale edilebilir güçlüğü seç; bunu kazanmanı sağlayacak avantajı göster.</p><div class="sol"><b>Tuzak:</b> her şeye öncelik vermek, "talep var" demekle yetinmek.</div></div>'+
+   '<div class="box"><h4>3 · Tutarlı eylem</h4><p>Bölüm 6, 7, 12, 13. Birbirini besleyen eylemler tasarla; gereken yetkiyi kazan, kurum içi engelleri çöz, doğru yeniliği yap.</p><div class="sol"><b>Tuzak:</b> birbirini boşa çıkaran kararlar, slogan ve vizyon metni.</div></div>'+
+   '<div class="box"><h4>4 · Seyrüsefer</h4><p>Bölüm 3, 18, 19, 20. Bir ya da iki yakın görev, yaklaşık 18 aylık ufuk, yazılı varsayımlar, ortak taahhüt; yol boyunca kontrol et.</p><div class="sol"><b>Tuzak:</b> yönetimi, çeyreklik kârı ya da planlama tablosunu strateji sanmak.</div></div>'+
+  '</div>'+
+  '<div class="arrow">Hepsinin sonucu</div>'+
+  '<div class="base"><strong>İyi strateji</strong> herkesin yaptığı her şeyi kapsayan büyük bir belge değil, seçilmiş kritik güçlüğe karşı birlikte hareket etme düzenidir. Teşhis olmadan hedefler keyfîleşir; avantaj olmadan büyüme pahalılaşır; yetki olmadan eylem gerçekleşmez; tutarlılık olmadan kaynaklar birbirini zayıflatır.</div>'+
+ '</div>'+
+ '<h2>Bölüm bölüm tek cümle</h2><table class="t"><thead><tr><th>Bölüm</th><th>Ana fikir</th></tr></thead><tbody>'+
+ [["Giriş","Strateji, aşılabilir kritik düğümü bulup kaynakları orada yoğunlaştırmaktır (SpaceX)."],["1 · Carolyn'in çıkmazı","Önce güçlük, sonra hedef; Netflix'in sorunu içerik maliyeti ile izleyici tabanıdır."],["2 · Düğümü bulmak","Topla, grupla, daralt; çözüm çoğu zaman gizli bir varsayımı fark etmekten gelir."],["3 · Yolculuk","Her aşama yeni bir güçlük getirir (Salesforce, Ryanair)."],["4 · ASC","Hem önemli hem müdahale edilebilir güçlüğe odaklan."],["5 · Büyüme","Büyüme emirle gelmez; değer, avantaj ve odak gerektirir."],["6 · Güç","Strateji yetki ister; unvan hareket gücü değildir."],["7 · Tutarlılık","Eylemler birbirini boşa çıkarmamalı, güçlendirmelidir."],["8 · Teşhis","Çerçeve değişince çözüm de değişir; benzetmelere dikkat."],["9 · Karşılaştırma","Doğru karşılaştırma doğru soruyu üretir."],["10 · Araçlar","Keskin araçların varsayımlarını ve siyasetini sorgula."],["11 · Avantaj","Neden özellikle sen kazanırsın? Mekanizmayı göster."],["12 · Yenilik","Teknolojiyi doğru ihtiyaçla doğru zamanda eşleştir."],["13 · İşlev bozukluğu","Bazen düğüm içeridedir; başarı dikkati gevşetir."],["14 · Hedefler","Hedefler teşhisten sonra gelir; yakın görev tanımla."],["15 · Yönetim","Ölçmek ve yönetmek yön belirlemek değildir."],["16 · Finansal sonuç","Bugünkü kâr yarının gücünün kanıtı değildir."],["17 · Planlama","Planlama koordinasyon aracıdır, teşhisin yerine geçmez."],["18 · Rumsfeld'in sorusu","Doğru analiz, sahiplenilmedikçe stratejiye dönüşmez."],["19 · FarmKor","Üç günde dağınık taleplerden ortak teşhise ve kararlara."],["20 · Araçlar","Daralt, yakın görev seç, varsayımları yaz, birlikte takip et."]].map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>';}).join("")+
+ '</tbody></table>'+
+ '<h2>Bir stratejist gibi sorulacak on soru</h2><ol class="keyq">'+KEYQ.map(function(q){return '<li>'+esc(q)+'</li>';}).join("")+'</ol>'+
+ '<h2>Kontrol listesi</h2><p>Kendini değerlendir; işaretlediklerin bu tarayıcıda saklanır.</p><ul class="check" id="checks">'+checks+'</ul>'+
+ '<p class="note">Bu kısım tamamen senin içindi; hiçbir cevabın gönderilmedi. Okuduğun için teşekkür ederim.</p>'+
+ '<div class="nav"><button class="btn sec" id="btnPrev">Önceki</button><span></span><button class="btn" id="btnHome">Başa dön</button></div></div>';
+ Array.prototype.forEach.call(document.querySelectorAll("#checks input"),function(c){
+  c.onchange=function(){ S.checks[parseInt(c.getAttribute("data-i"),10)]=c.checked; save(); };
+ });
+ $("btnPrev").onclick=function(){go(PART2[PART2.length-1].id);};
+ $("btnHome").onclick=function(){go("cover");};
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+ app=$("app");
+ S.view="cover";
+ render();
+});
+})();
+
+</script>
+</body>
+</html>
